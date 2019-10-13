@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('acceuil');
-})->middleware('auth');
+})->middleware('auth');*/
+Route::get('/', 'AnnonceController@getLastAnnonces')->name('acceuil');
 Route::get('/register', 'RegisterControler@index')->name('register');
 Auth::routes();
-
+Route::get('/annonces', 'AnnonceController@getAllannonce')->name('liste.annonce');
+Route::get('/annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/utilisateur', 'UserController');
 Route::resource('/categories', 'CategorieController')->middleware('auth');

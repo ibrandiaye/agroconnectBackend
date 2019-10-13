@@ -1,6 +1,6 @@
 @extends('admin')
 @section('content')
-    <!-- Page Heading -->
+  <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Enregistrer un catégorie</h1>
     </div>
@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="form-group lg-4">
                                         <label>Image</label>
-                                        <input type="file" class="form-control form-control-user" name="filename" id="type"  placeholder="Entrer le type du client..." required>
+                                        <input type="file"  name="filename" id="type"  placeholder="Entrer le type du client..." required>
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Enregistrer">
                                 </div>

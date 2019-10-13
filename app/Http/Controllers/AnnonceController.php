@@ -88,9 +88,20 @@ class AnnonceController extends Controller
     {
         //
     }
-
-    // function for application mobile
+    public function getLastAnnonces(){
+        $annonces = $this->annonceRepository->getLastsAnnonce(6);
+        return view('acceuil',compact('annonces'));
+    }
+    public function getOneAnnonce($id){
+        $annonce = $this->annonceRepository->getOneAnnonce($id);
+        return view('annonces.detailAnnonce',compact('annonce'));
+    }
     public function getAllannonce(){
+        $annonces = $this->annonceRepository->getAllAnnonce();
+        return  view('annonces.listeAnnonces',compact('annonces'));
+    }
+    // function for application mobile
+    public function getAllannonceApi(){
         $annonces = $this->annonceRepository->getAll();
         return response()->json($annonces);
     }
