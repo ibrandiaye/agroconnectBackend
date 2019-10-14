@@ -54,13 +54,32 @@
                                     </a>
                                     <p class="product-title">{{$annonce->produit->libelle}}</p>
                                     <p class="product-price">{{ $annonce->prix_unitaire }} CFA</p>
-                                    <a class="add-to-cart" href="">Acheter</a>
+                                    <a class="add-to-cart" href="{{route('une.annonce',[$annonce->id])}}" >Voir</a>
                                     <div class="action">
                                         <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-                                        <a href="{{route('une.annonce',[$annonce->id])}}" title="View"><i class="fa fa-compress"></i></a>
+                                        <a href="{{route('une.annonce',[$annonce->id])}}" title="Voir"><i class="fa fa-compress"></i></a>
                                     </div>
                                 </div>
                             </div>
+                                <div class="modal fade" id="myModal{{ $annonce->id }}" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Modal Header</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Some text in the modal.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                            @endforeach
                         </div>
                         <!-- End product-tab-content products                                     -->

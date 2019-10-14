@@ -58,6 +58,14 @@
                                     <label class=" control-label" for="inputquantite">Quantite</label>
                                     <input type="number" name="quantite" class="form-control" id="inputquantite" placeholder="Entrer votre Adresse..." required="">
                                 </div>
+                                <div class="form-group ">
+                                    <label for="inputstate" class="control-label">unite</label>
+                                    <select class="form-control inputstate" name="unite">
+                                        <option value="">Veuillez choisir...</option>
+                                        <option value="Kg">Kg</option>
+                                        <option value="Sac">Sac</option>
+                                    </select>
+                                </div>
 
                             </div>
                             <!-- End col-md-6 -->

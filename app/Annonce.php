@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Annonce extends Model
 {
     protected $fillable = [
-        'libelle','prix_unitaire','quantite','etat','produit_id','user_id'
+        'libelle','prix_unitaire','quantite','etat','produit_id','user_id','unite'
     ];
     public function produit(){
         return $this->belongsTo(Produit::class);

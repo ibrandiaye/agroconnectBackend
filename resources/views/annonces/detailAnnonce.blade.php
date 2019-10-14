@@ -5,8 +5,8 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Table</a></li>
-                <li class="active">Smart TV Ultra HD 40 inch - 40JU6600 </li>
+                <li><a href="#">{{$annonce->produit->sousCategorie->libelle}}</a></li>
+                <li class="active">{{$annonce->produit->libelle}} </li>
             </ul>
             <div class="product-details-content">
                 <div class="col-md-6 col-sm-6">
@@ -54,6 +54,7 @@
                     <!-- End Rating -->
                     <div class="wrap-price space-30 space-padding-tb-30">
                         <p class="price">{{$annonce->prix_unitaire}} cfa</p>
+                        <p class="price">{{$annonce->quantite}} {{ $annonce->unite }}</p>
                     </div>
                     <!-- End Price -->
                     <div class="options">
@@ -82,7 +83,7 @@
                         </form>
                         <div class="quantity space-30">
                             <p class="color-red">Repuired Fiields *</p>
-                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="100" min="1" step="1">
+                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="{{$annonce->quantite}}" min="1" step="1">
                             <span class="price"></span>
                         </div>
                         <!-- End quanity -->
@@ -90,7 +91,7 @@
                     <!-- End Options -->
                     <div class="products">
                         <div class="product product-details">
-                            <a href="#" class="add-to-cart">Add to Cart</a>
+                            <button href="#" class="add-to-cart" data-toggle="modal" data-target="#myModal">Acheter</button>
                             <div class="action">
                                 <a title="Like" href="#"><i class="fa fa-heart-o"></i></a>
                                 <a title="View" href="#"><i class="fa fa-compress"></i></a>
@@ -263,7 +264,39 @@
                     </div>
                 </div>
             </div>
+        </div><button type="button" class="btn btn-info btn-lg" >Open Modal</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="{{ url('poster') }}">
+                            {{ csrf_field() }}
+                            <div class="quantity 0">
+                                <p class="color-red">Quantite *</p>
+                                <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantite" max="{{$annonce->quantite}}" min="1" step="1" >
+                                <span class="price"></span>
+
+                                <input type="hidden" value="{{ $annonce->id }}" name="annonce_id">
+                                <input type="submit" class="add-to-cart" value="valider">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
         <!-- End container -->
     </div>
 @endsection

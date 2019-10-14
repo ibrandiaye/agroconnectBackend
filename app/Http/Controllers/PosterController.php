@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PosterRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PosterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $posterRepository;
+    public function __construct(PosterRepository $posterRepository){
+        $this->posterRepository = $posterRepository;
+    }
     public function index()
     {
         //
@@ -23,7 +24,7 @@ class PosterController extends Controller
      */
     public function create()
     {
-        //
+        return view("poster.add");
     }
 
     /**
@@ -34,7 +35,14 @@ class PosterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //try{
+            $request->merge(['user_id'=>Auth::id(),'etat'=> false]);
+            $poster = $this->posterRepository->store($request->all());
+            return redirect()->back()->with('success','Nous possédons à la validatio de votre de annonce');
+      //  }catch (\Exception $ex) {
+            //return redirect()->back()->with('error','Echec! veuillez réessayer');
+        //}
+
     }
 
     /**

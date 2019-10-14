@@ -17,11 +17,13 @@
 Route::get('/', 'AnnonceController@getLastAnnonces')->name('acceuil');
 Route::get('/register', 'RegisterControler@index')->name('register');
 Auth::routes();
+Route::resource('/annonce', 'AnnonceController')->middleware('auth');
 Route::get('/annonces', 'AnnonceController@getAllannonce')->name('liste.annonce');
-Route::get('/annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce');
+Route::get('/une-annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/utilisateur', 'UserController');
 Route::resource('/categories', 'CategorieController')->middleware('auth');
 Route::resource('/sous-categorie', 'SousCategorieController');
 Route::resource('/produit', 'ProduitController');
-Route::resource('/annonce', 'AnnonceController')->middleware('auth');
+Route::resource('/poster', 'PosterController');
+

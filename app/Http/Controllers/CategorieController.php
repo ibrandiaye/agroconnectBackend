@@ -18,7 +18,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categories= $this->categorieRepository->getAll();
+        return view('categorie.index',compact('categories'));
     }
 
     /**
