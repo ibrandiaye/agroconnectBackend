@@ -92,10 +92,10 @@ class RegisterController extends Controller
         if($data['role_id']==1){
 
         //$user->save();
-        //$idUser =  DB::table('users')->where('email', $request->input('emailet'))->value('id');
-        //$request->merge(['password' => bcrypt($request->password)]);
-        //$request->password
-        //$user = $this->userRepository->store($request->all());
+        //$idUser =  DB::table('users')->where('email', $data->input('emailet'))->value('id');
+        //$data->merge(['password' => bcrypt($data->password)]);
+        //$data->password
+        //$user = $this->userRepository->store($data->all());
             Paysan::create([
                 'user_id' => $user->id,
                 'matricule' => time().$user->id,

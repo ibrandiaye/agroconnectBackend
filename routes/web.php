@@ -26,4 +26,5 @@ Route::resource('/categories', 'CategorieController')->middleware('auth');
 Route::resource('/sous-categorie', 'SousCategorieController');
 Route::resource('/produit', 'ProduitController');
 Route::resource('/poster', 'PosterController');
+Route::resource('/cooperation', 'CooperationController');
 
