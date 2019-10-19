@@ -10,7 +10,7 @@ class ServiceController extends Controller
     protected $serviceRepository;
     protected $sousCategorieRepository;
 
-    public function __construct(ServiceRepository){
+    public function __construct(ServiceRepository $serviceRepository){
 
     }
     public function index()
