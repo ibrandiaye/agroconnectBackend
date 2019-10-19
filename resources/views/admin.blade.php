@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="/asset/images/favicon.ico">
     @yield('css')
     <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    <link rel="stylesheet" href="/plugins/morris/morris.css">
 
     <link href="/asset/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/asset/css/metismenu.min.css" rel="stylesheet" type="text/css">
@@ -170,14 +170,36 @@
                     </li>
 
                     <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Email <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Produit <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                         <ul class="submenu">
-                            <li><a href="email-inbox.html">Inbox</a></li>
-                            <li><a href="email-read.html">Email Read</a></li>
+                            <li><a href="{{ route('produit.create') }}">Ajouter Produit</a></li>
+                            <li><a href="{{route('produit.index')}}">Liste</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('categories.create') }}">Ajouter</a></li>
+                            <li><a href="">Liste </a></li>
                             <li><a href="email-compose.html">Email Compose</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span>Sous Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('sous-categorie.create') }}">Ajouter</a></li>
+                            <li><a href="{{route('sous-categorie.index')}}">Liste </a></li>
+                            <li><a href="email-compose.html">Email Compose</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Annonce <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('annonce.invalide') }}">à Valider</a></li>
+                            <li><a href="{{route('annonce.all.admin')}}">tous les annonces</a></li>
 
+                        </ul>
+                    </li>
                 </ul>
 
             </div>
@@ -218,10 +240,10 @@
 
 
 <script src="/asset/pages/dashboard.init.js"></script>
-
+@yield('script')
 <!-- App js -->
 <script src="/asset/js/app.js"></script>
-@yield('script')
+
 </body>
 
 </html>

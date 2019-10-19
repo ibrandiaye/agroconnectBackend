@@ -100,6 +100,20 @@ class AnnonceController extends Controller
         $annonces = $this->annonceRepository->getAllAnnonce();
         return  view('annonces.listeAnnonces',compact('annonces'));
     }
+    public function getAllannonceAdmin(){
+        $annonces = $this->annonceRepository->getAllAnnonce();
+        return  view('annonces.listeAnnoncesAdmin',compact('annonces'));
+    }
+    public function validerAnnonce($id){
+        $annonce = $this->annonceRepository->getById($id);
+        $annonce->etat=true;
+        $annonce->save();
+        return redirect()->back();
+    }
+    public function getAnnonceToValidate(){
+        $annonces= $this->annonceRepository->getAnnonceNoValidate();
+        return view('annonces.listeAnnoncesAValider',compact('annonces'));
+    }
     // function for application mobile
     public function getAllannonceApi(){
         $annonces = $this->annonceRepository->getAll();

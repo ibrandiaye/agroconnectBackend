@@ -11,12 +11,12 @@
         <div class="page-title-box">
             <div class="row align-items-center">
                 <div class="col-sm-6">
-                    <h4 class="page-title">Liste des catégories</h4>
+                    <h4 class="page-title">Liste des Annonces</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Acceuil</a></li>
-                        <li class="breadcrumb-item active">Liste des catégories</li>
+                        <li class="breadcrumb-item active">Liste des Annonces</li>
                     </ol>
                 </div>
             </div>
@@ -24,32 +24,45 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
+
+            <div class="col-lg-12">
                 <div class="card m-b-30">
                     <div class="card-body">
+
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                             <tr>
-                                <th>Identifiant</th>
                                 <th>Image</th>
-                                <th>Libelle</th>
-
+                                <th>Produit</th>
+                                <th>Prix Unitaire</th>
+                                <th>Quantite</th>
+                                <th>sous Categorie</th>
+                                <th>Categorie</th>
+                                <th>Annonceur</th>
+                                <th>Téléphone</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($categories as $categorie)
+                            @foreach($annonces as $annonce)
                                 <tr>
-                                    <td>{{$categorie->id}}</td>
-                                    <td><img src="/categorie/{{ $categorie->image }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td>
-                                    <td>{{$categorie->libelle}}</td>
+                                    <td><img src="/categorie/{{ $annonce->produit->image }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td>
+                                    <td>{{ $annonce->produit->libelle }}</td>
+                                    <td>{{ $annonce->prix_unitaire }}</td>
+                                    <td>{{ $annonce->quantite }}</td>
+                                    <td>{{ $annonce->produit->sousCategorie->libelle }}</td>
+                                    <td>{{ $annonce->produit->sousCategorie->categorie->libelle }}</td>
+                                    <td>{{ $annonce->user->name }}</td>
+                                    <td>{{ $annonce->user->telephone}}</td>
+                                    <td><a type="button" href="{{route('valider.annonce',['id'=>$annonce->id])}}" class="btn btn-outline-success waves-effect waves-light">Valider</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
 
-                     </div>
+                    </div>
                 </div>
             </div>
         </div>

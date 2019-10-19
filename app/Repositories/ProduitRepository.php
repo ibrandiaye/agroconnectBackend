@@ -16,5 +16,9 @@ class ProduitRepository extends RessourceRepository{
     public function __construct(Produit $produit){
         $this->model = $produit;
     }
+    public function getAllProduitsWithRelation(){
+        return Produit::with(['sousCategorie','sousCategorie.categorie'])
+            ->get();
+    }
 
 }

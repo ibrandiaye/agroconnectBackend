@@ -21,6 +21,8 @@ class SousCategorieController extends Controller
      */
     public function index()
     {
+        $sousCategories = $this->sousCategorieRepository->getAllProduitsWithRelation();
+        return view('sousCategorie.liste', compact('sousCategories'));
 
 
     }

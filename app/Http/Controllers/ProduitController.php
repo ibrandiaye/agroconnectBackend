@@ -17,7 +17,8 @@ class ProduitController extends Controller
     }
     public function index()
     {
-        //
+        $produits = $this->produitReposiory->getAllProduitsWithRelation();
+        return view('produit.liste',compact('produits'));
     }
 
     /**

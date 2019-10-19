@@ -27,4 +27,7 @@ Route::resource('/sous-categorie', 'SousCategorieController');
 Route::resource('/produit', 'ProduitController');
 Route::resource('/poster', 'PosterController');
 Route::resource('/cooperation', 'CooperationController');
+Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
+Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name('annonce.all.admin');
+Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
 

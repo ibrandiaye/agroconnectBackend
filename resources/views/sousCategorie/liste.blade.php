@@ -11,12 +11,12 @@
         <div class="page-title-box">
             <div class="row align-items-center">
                 <div class="col-sm-6">
-                    <h4 class="page-title">Liste des catégories</h4>
+                    <h4 class="page-title">Liste des sous catégories</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Acceuil</a></li>
-                        <li class="breadcrumb-item active">Liste des catégories</li>
+                        <li class="breadcrumb-item active">Liste des sous Categorie</li>
                     </ol>
                 </div>
             </div>
@@ -39,7 +39,12 @@
 
 
                             <tbody>
-                            @foreach()
+                            @foreach($sousCategories as $sousCategorie)
+                                <tr>
+                                    <td>{{$sousCategorie->id}}</td>
+                                    <td><img src="/categorie/{{ $sousCategorie->image }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td>
+                                    <td>{{$sousCategorie->libelle}}</td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
@@ -52,10 +57,22 @@
 
 @endsection
 @section('script')
+    <!-- Required datatable js -->
+    <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="/plugins/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="/plugins/datatables/jszip.min.js"></script>
+    <script src="/plugins/datatables/pdfmake.min.js"></script>
+    <script src="/plugins/datatables/vfs_fonts.js"></script>
+    <script src="/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="/plugins/datatables/buttons.print.min.js"></script>
+    <script src="/plugins/datatables/buttons.colVis.min.js"></script>
     <!-- Responsive examples -->
     <script src="/plugins/datatables/dataTables.responsive.min.js"></script>
     <script src="/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
     <!-- Datatable init js -->
-    <script src="/assets/pages/datatables.init.js"></script>
+    <script src="/asset/pages/datatables.init.js"></script>
 @endsection

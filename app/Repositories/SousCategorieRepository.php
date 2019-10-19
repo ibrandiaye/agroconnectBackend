@@ -16,4 +16,9 @@ class SousCategorieRepository extends RessourceRepository{
         $this->model = $sousCategorie;
 
     }
+    public function getAllProduitsWithRelation(){
+        return SousCategorie::with(['categorie'])
+            ->get();
+    }
+
 }

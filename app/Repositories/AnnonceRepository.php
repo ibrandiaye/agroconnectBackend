@@ -30,9 +30,16 @@ class AnnonceRepository extends RessourceRepository{
             ->first();
     }
     public function getAllAnnonce(){
-        return Annonce::with(['produit'])
+        return Annonce::with(['produit','produit.sousCategorie','produit.sousCategorie.categorie','user'])
             ->orderBy('id','desc')
             ->get();
     }
+    public function getAnnonceNoValidate(){
+        return Annonce::with(['produit','produit.sousCategorie','produit.sousCategorie.categorie','user'])
+            ->where('etat',false)
+            ->get();
+    }
+
+
 
 }

@@ -15,5 +15,8 @@ class SousCategorie extends Model
     public function produits(){
         return $this->hasMany(Produit::class);
     }
+    public function services(){
+        return $this->hasMany(Service::class);
+    }
     protected  $table= 'sous_categories';
 }
