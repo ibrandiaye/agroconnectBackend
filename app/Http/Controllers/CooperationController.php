@@ -69,7 +69,13 @@ class CooperationController extends Controller
             $request->merge(['dossier' => $fileNameToStore]);
         }
         $this->cooperativeRepository->store($request->all());
+<<<<<<< HEAD
         return $user;
+=======
+        return redirect()->back();
+
+
+>>>>>>> b2218c5b4d3fa5fce9f4c4609e4d561796acaa16
     }
 
     /**

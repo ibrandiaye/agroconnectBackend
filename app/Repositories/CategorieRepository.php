@@ -15,5 +15,8 @@ class CategorieRepository extends RessourceRepository{
     public function __construct(Categorie $categorie){
         $this->model = $categorie;
     }
-
+    public function getCategorieWithSousCategorie(){
+        return Categorie::with(['sousCategories'])
+            ->get();
+    }
 }

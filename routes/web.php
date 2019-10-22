@@ -35,3 +35,5 @@ Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name(
 Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
 Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin');
 Route::get('/tous-les-parcelles/', 'ParcelleController@getAllParcelleAdmin')->name('parcelle.all.admin');
+Route::resource('/service', 'ServiceController')->middleware('auth');
+Route::get('/service/categorie/{id}', 'ServiceController@getServiceByCategorie')->name('service.souscategorie');
