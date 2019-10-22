@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\GrenierRepository;
 use Illuminate\Http\Request;
 
 class GrenierController extends Controller
 {
+    protected $grenierRepository;
+
+    public function __construct(GrenierRepository $grenierRepository)
+    {
+        $this->grenierRepository = $grenierRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -80,5 +87,11 @@ class GrenierController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getAllGrenierAdmin()
+    {
+        $grenier = $this->grenierRepository->getAllGrenier();
+        return  view('grenier.show', compact('grenier'));
     }
 }

@@ -36,5 +36,6 @@ Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('v
 Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin');
 Route::get('/tous-les-parcelles/', 'ParcelleController@getAllParcelleAdmin')->name('parcelle.all.admin');
 Route::get('/tous-les-cultures/', 'CultureController@getAllCultureAdmin')->name('culture.all.admin');
+Route::get('/tous-les-greniers/', 'GrenierController@getAllGrenierAdmin')->name('gernier.all.admin');
 Route::resource('/service', 'ServiceController')->middleware('auth');
 Route::get('/service/categorie/{id}', 'ServiceController@getServiceByCategorie')->name('service.souscategorie');

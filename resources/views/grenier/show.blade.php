@@ -11,12 +11,12 @@
         <div class="page-title-box">
             <div class="row align-items-center">
                 <div class="col-sm-6">
-                    <h4 class="page-title">Liste des Cultures</h4>
+                    <h4 class="page-title">Liste des Greniers</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Acceuil</a></li>
-                        <li class="breadcrumb-item active">Liste des Cultures</li>
+                        <li class="breadcrumb-item active">Liste des Greniers</li>
                     </ol>
                 </div>
             </div>
@@ -32,19 +32,22 @@
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                             <tr>
-                                {{-- <th>Image </th> --}}
-                                <th>Libelle</th>
+                                <th>Latitude </th>
+                                <th>Longitude </th>
+                                <th>Adresse</th>
                                 <th>Copperative </th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($culture as $culture)
+                            @foreach($grenier as $grenier)
                                 <tr>
                                     {{-- <td><img src="/dossier/{{ $cooperative->dossier }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td> --}}
-                                    <td>{{ $culture->libelle }}</td>
-                                    <td>{{ $culture->cooperation->user->name }}</td>
+                                    <td>{{ $grenier->latitude }}</td>
+                                    <td>{{ $grenier->longitude }}</td>
+                                    <td>{{ $grenier->adresse }}</td>
+                                    <td>{{ $grenier->cooperation->user->name }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
