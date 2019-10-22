@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CultureRepository;
 use Illuminate\Http\Request;
 
 class CultureController extends Controller
 {
+
+    protected $cultureRepository;
+
+    public function __construct(CultureRepository $cultureRepository)
+    {
+        $this->cultureRepository = $cultureRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -80,5 +88,10 @@ class CultureController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getAllCultureAdmin()
+    {
+        $culture = $this->cultureRepository->getAllCulture();
+        return  view('culture.show', compact('culture'));
     }
 }
