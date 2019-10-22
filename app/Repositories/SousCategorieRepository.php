@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\SousCategorie;
+use Illuminate\Support\Facades\DB;
 
 class SousCategorieRepository extends RessourceRepository{
     public function __construct( SousCategorie $sousCategorie){
@@ -19,6 +20,9 @@ class SousCategorieRepository extends RessourceRepository{
     public function getAllProduitsWithRelation(){
         return SousCategorie::with(['categorie'])
             ->get();
+    }
+    public function getSousCategorieWithCategorie($categorie){
+        return DB::table('sous_categories')->where('categorie_id', $categorie)->get();
     }
 
 }
