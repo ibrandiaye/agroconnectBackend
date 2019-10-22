@@ -10,7 +10,8 @@ class CooperationController extends Controller
 {
     protected $cooperativeRepository;
 
-    public function __construct(CooperationRepository $cooperationRepository){
+    public function __construct(CooperationRepository $cooperationRepository)
+    {
         $this->cooperativeRepository = $cooperationRepository;
     }
     public function index()
@@ -45,32 +46,30 @@ class CooperationController extends Controller
             'adresse' => 'required',
             'role_id' => 'required',
         ]);
-         $user =User::create([
-        'name' => $request['name'],
-        'email' => $request['email'],
-        'password' => bcrypt($request['password_confirmation']),
-        'telephone' => $request['telephone'],
-        'adresse'=> $request['adresse'],
-        'role_id'=> $request['role_id']
-    ]);
-        $request->merge(['user_id' => $user->id,'matricule'=> time().$user->id]);
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password_confirmation']),
+            'telephone' => $request['telephone'],
+            'adresse' => $request['adresse'],
+            'role_id' => $request['role_id']
+        ]);
+        $request->merge(['user_id' => $user->id, 'matricule' => time() . $user->id]);
 
-        if($request->hasFile('doc')) {
+        if ($request->hasFile('doc')) {
             $fileNameWithExtention = $request->file('doc')->getClientOriginalName();
 
-            $filename =pathinfo($fileNameWithExtention, PATHINFO_FILENAME);
+            $filename = pathinfo($fileNameWithExtention, PATHINFO_FILENAME);
 
             $extension = $request->file('doc')->getClientOriginalExtension();
 
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
             $request->file('doc')->storeAs('public/dossier', $fileNameToStore);
             $request->file('doc')->storeAs('public/dossier/thumbnail', $fileNameToStore);
-            $request->merge(['dossier'=>$fileNameToStore]);
+            $request->merge(['dossier' => $fileNameToStore]);
         }
         $this->cooperativeRepository->store($request->all());
         return $user;
-
-
     }
 
     /**
@@ -116,5 +115,11 @@ class CooperationController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getAllCooperativeAdmin()
+    {
+        $cooperative = $this->cooperativeRepository->getAllCooperative();
+        // $annonces = $this->annonceRepository->getAllAnnonce();
+        return  view('cooperative.show', compact('cooperative'));
     }
 }

@@ -27,7 +27,11 @@ Route::resource('/sous-categorie', 'SousCategorieController');
 Route::resource('/produit', 'ProduitController');
 Route::resource('/poster', 'PosterController');
 Route::resource('/cooperation', 'CooperationController');
+Route::resource('/parcelle', 'ParcelleController');
+Route::resource('/grenier', 'GrenierController');
+Route::resource('/culture', 'CultureController');
 Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
 Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name('annonce.all.admin');
 Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
-
+Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin');
+Route::get('/tous-les-parcelles/', 'ParcelleController@getAllParcelleAdmin')->name('parcelle.all.admin');

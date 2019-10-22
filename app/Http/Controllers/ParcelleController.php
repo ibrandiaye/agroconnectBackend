@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ParcelleRepository;
 use Illuminate\Http\Request;
 
 class ParcelleController extends Controller
 {
+    protected $parcelleRepository;
+
+    public function __construct(ParcelleRepository $parcelleRepository)
+    {
+        $this->parcelleRepository = $parcelleRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +30,7 @@ class ParcelleController extends Controller
      */
     public function create()
     {
-        //
+        return view("parcelle.add");
     }
 
     /**
@@ -34,7 +41,23 @@ class ParcelleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->merge(['cooperation_id' => Auth::id()]);
+        $parcelle = $this->parcelleRepository->store($request->all());
+        // TODO: add fonctionalites.
+
+        if ($request->hasFile('image')) {
+            $fileNameWithExtention = $request->file('image')->getClientOriginalName();
+
+            $filename = pathinfo($fileNameWithExtention, PATHINFO_FILENAME);
+
+            $extension = $request->file('image')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $request->file('image')->storeAs('public/dossier', $fileNameToStore);
+            $request->file('image')->storeAs('public/dossier/thumbnail', $fileNameToStore);
+            $request->merge(['dossier' => $fileNameToStore]);
+        }
     }
 
     /**
@@ -80,5 +103,11 @@ class ParcelleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getAllParcelleAdmin()
+    {
+        $parcelle = $this->parcelleRepository->getAllParcelle();
+        return  view('parcelle.show', compact('parcelle'));
     }
 }

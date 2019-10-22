@@ -23,7 +23,7 @@ class GrenierController extends Controller
      */
     public function create()
     {
-        //
+        return view("grenier.add");
     }
 
     /**

@@ -196,8 +196,36 @@
                         <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Annonce <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
                         <ul class="submenu">
                             <li><a href="{{ route('annonce.invalide') }}">à Valider</a></li>
-                            <li><a href="{{route('annonce.all.admin')}}">tous les annonces</a></li>
+                            <li><a href="{{route('annonce.all.admin')}}">Toutes les annonces</a></li>
 
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Coopérative <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('cooperation.create') }}">Ajouter</a></li>
+                            <li><a href="{{route('cooperation.all.admin')}}">Afficher</a></li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Parcelles <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('parcelle.create') }}">Ajouter</a></li>
+                                    <li><a href="{{route('parcelle.all.admin')}}">Afficher</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Cultures <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('culture.create') }}">Ajouter</a></li>
+                                    <li><a href="{{route('parcelle.all.admin')}}">Afficher</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Greniers <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('grenier.create') }}">Ajouter</a></li>
+                                    <li><a href="{{route('parcelle.all.admin')}}">Afficher</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
