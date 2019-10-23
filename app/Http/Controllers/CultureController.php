@@ -42,7 +42,18 @@ class CultureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('filename')) {
+            $fileNameWithExtention = $request->file('filename')->getClientOriginalName();
+
+            $filename = pathinfo($fileNameWithExtention, PATHINFO_FILENAME);
+
+            $extension = $request->file('filename')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $request->file('filename')->storeAs('public/dossier', $fileNameToStore);
+            $request->file('filename')->storeAs('public/dossier/thumbnail', $fileNameToStore);
+            $request->merge(['image' => $fileNameToStore]);
+        }
     }
 
     /**

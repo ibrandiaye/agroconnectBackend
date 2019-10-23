@@ -14,7 +14,7 @@ class GrenierRepository extends RessourceRepository
 
     public function getAllGrenier()
     {
-        return Grenier::with(['cooperation'])
+        return Grenier::with(['cooperation','cooperation.user'])
             ->orderBy('id', 'desc')
             ->get();
     }

@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CooperationRepository;
 use App\Repositories\ParcelleRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ParcelleController extends Controller
 {
     protected $parcelleRepository;
+    protected $cooperativeRepository;
 
-    public function __construct(ParcelleRepository $parcelleRepository)
+    public function __construct(ParcelleRepository $parcelleRepository, CooperationRepository $cooperationRepository)
     {
         $this->parcelleRepository = $parcelleRepository;
+        $this->cooperativeRepository = $cooperationRepository;
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +24,8 @@ class ParcelleController extends Controller
      */
     public function index()
     {
-        //
+        $parcelles= $this->parcelleRepository->getAllParcelle();
+        return view('parcelle.show',compact('parcelles'));
     }
 
     /**
@@ -41,23 +46,24 @@ class ParcelleController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->merge(['cooperation_id' => Auth::id()]);
-        $parcelle = $this->parcelleRepository->store($request->all());
+        $cooperative = $this->cooperativeRepository->getCooperativeByUser(Auth::id());
+        $request->merge(['cooperation_id' => $cooperative->id]);
         // TODO: add fonctionalites.
 
-        if ($request->hasFile('image')) {
-            $fileNameWithExtention = $request->file('image')->getClientOriginalName();
+        if ($request->hasFile('filename')) {
+            $fileNameWithExtention = $request->file('filename')->getClientOriginalName();
 
             $filename = pathinfo($fileNameWithExtention, PATHINFO_FILENAME);
 
-            $extension = $request->file('image')->getClientOriginalExtension();
+            $extension = $request->file('filename')->getClientOriginalExtension();
 
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            $request->file('image')->storeAs('public/dossier', $fileNameToStore);
-            $request->file('image')->storeAs('public/dossier/thumbnail', $fileNameToStore);
-            $request->merge(['dossier' => $fileNameToStore]);
+            $request->file('filename')->storeAs('public/dossier', $fileNameToStore);
+            $request->file('filename')->storeAs('public/dossier/thumbnail', $fileNameToStore);
+            $request->merge(['image' => $fileNameToStore]);
         }
+        $parcelle = $this->parcelleRepository->store($request->all());
+        return redirect()->back();
     }
 
     /**

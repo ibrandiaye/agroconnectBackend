@@ -44,10 +44,10 @@
 
 
                             <tbody>
-                            @foreach($parcelle as $parcelle)
+                            @foreach($parcelles as $parcelle)
                                 <tr>
-                                    {{-- <td><img src="/dossier/{{ $cooperative->dossier }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td> --}}
-                                    <td>{{ $parcelle->superficie }}</td>
+                                     <td><img src="/dossier/{{ $parcelle->image }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td>
+                                    <td>{{ $parcelle->superficie }} m²</td>
                                     <td>{{ $parcelle->latitude }}</td>
                                     <td>{{ $parcelle->longitude }}</td>
                                     <td>{{ $parcelle->cooperation->user->name }}</td>

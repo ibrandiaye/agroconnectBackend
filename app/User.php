@@ -27,8 +27,8 @@ class User extends Authenticatable
     public function entreprise(){
         return $this->belongsTo(Entreprise::class);
     }
-    public function cooperation(){
-        $this->belongsTo(Cooperation::class);
+    public function cooperations(){
+        $this->hasMany(Cooperation::class);
     }
     public function publications(){
         $this->hasMany(Publication::class);

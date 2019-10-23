@@ -20,7 +20,7 @@ class ParcelleRepository extends RessourceRepository
 
     public function getAllParcelle()
     {
-        return Parcelle::with(['cooperation'])
+        return Parcelle::with(['cooperation','cooperation.user'])
             ->orderBy('id', 'desc')
             ->get();
     }

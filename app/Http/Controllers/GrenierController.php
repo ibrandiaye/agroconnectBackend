@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CooperationRepository;
 use App\Repositories\GrenierRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GrenierController extends Controller
 {
     protected $grenierRepository;
-
-    public function __construct(GrenierRepository $grenierRepository)
+    protected $cooperativeRepository;
+    public function __construct(GrenierRepository $grenierRepository, CooperationRepository $cooperationRepository)
     {
         $this->grenierRepository = $grenierRepository;
+       $this->cooperativeRepository = $cooperationRepository;
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +23,8 @@ class GrenierController extends Controller
      */
     public function index()
     {
-        //
+        $greniers = $this->grenierRepository->getAllGrenier();
+        return view('grenier.show',compact('greniers'));
     }
 
     /**
@@ -41,7 +45,10 @@ class GrenierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cooperative = $this->cooperativeRepository->getCooperativeByUser(Auth::id());
+        $request->merge(['cooperation_id' => $cooperative->id]);
+        $grenier = $this->grenierRepository->store($request->all());
+        return redirect()->back();
     }
 
     /**

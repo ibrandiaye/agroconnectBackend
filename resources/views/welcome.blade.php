@@ -37,9 +37,18 @@
         <!-- End voucher -->
         <div class="topbar-right">
             <div class="sign-in">
-                <a href="#" title="register">Register</a>
-                <span>or</span>
-                <a href="#" title="sign in">Sign in</a>
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    Se déconnecer
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+                {{--<a href="#" title="register">Register</a>--}}
+                {{--<span>or</span>--}}
+                {{--<a href="#" title="sign in">Sign in</a>--}}
             </div>
             <!-- End SignIn -->
         </div>

@@ -41,7 +41,7 @@
 
 
                             <tbody>
-                            @foreach($grenier as $grenier)
+                            @foreach($greniers as $grenier)
                                 <tr>
                                     {{-- <td><img src="/dossier/{{ $cooperative->dossier }}" class=" img-fluid rounded-circle" style="max-width: 50px; max-height: 50px;"></td> --}}
                                     <td>{{ $grenier->latitude }}</td>
