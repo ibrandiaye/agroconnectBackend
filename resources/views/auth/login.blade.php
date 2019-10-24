@@ -4,7 +4,7 @@
   <!-- Begin page -->
         <div class="accountbg"></div>
         <div class="home-btn d-none d-sm-block">
-                <a href="/home" class="text-white"><i class="fas fa-home h2"></i></a>
+                <a href="/" class="text-white"><i class="fas fa-home h2"></i></a>
             </div>
         <div class="wrapper-page">
             <div class="card card-pages shadow-none">
