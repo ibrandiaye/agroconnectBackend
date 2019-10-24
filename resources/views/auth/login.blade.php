@@ -76,7 +76,7 @@
                                         <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> Mot de passe oublié?</a>
                                     </div>
                                     <div class="col-sm-5 text-right">
-                                        <a href="pages-register.html" class="text-muted">Créer un Compte</a>
+                                        <a href="{{ route('register') }}" class="text-muted">Créer un Compte</a>
                                     </div>
                                 </div>
                             </div>
