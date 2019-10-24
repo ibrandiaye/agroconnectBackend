@@ -9,7 +9,7 @@
             </ul>
             <div id="secondary" class="widget-area col-xs-12 col-md-3">
                 <aside class="widget widget_product_categories">
-                    <h3 class="widget-title">Welcome back!</h3>
+                    <h3 class="widget-title">Bienvenue</h3>
                     <ul>
                         <li><a href="#" title="Personal Information">Personal Information</a></li>
                         <li><a href="#" title="Billing Information">Billing Information</a></li>

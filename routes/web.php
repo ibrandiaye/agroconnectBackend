@@ -11,9 +11,7 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('acceuil');
-})->middleware('auth');*/
+// Les routes de l'application web. (php artisan route:list)
 Route::get('/', 'AnnonceController@getLastAnnonces')->name('acceuil');
 Route::get('/register', 'RegisterControler@index')->name('register');
 Auth::routes();
@@ -39,7 +37,6 @@ Route::get('/service/create', 'ServiceController@create')->name('service.create'
 Route::get('/service/categorie/{id}', 'ServiceController@getServiceByCategorie')->name('service.souscategorie');
 Route::resource('/interesse', 'InteresseController')->middleware('auth');
 
-
 Route::resource('/annonce', 'AnnonceController');
 Route::get('/utilisateur/annonce', 'AnnonceController@getAnnonceByUser')->name('utilisateur.annonce');
 Route::get('/annonce/create', 'AnnonceController@create')->name('annonce.create')->middleware('auth');
@@ -49,5 +46,5 @@ Route::get('/une-annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.an
 Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name('annonce.all.admin');
 Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
 Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
-Route::get('/mes-annonces','AnnonceController@getAnnonceByUser')->name('mes.annonces')->middleware('auth');
-Route::get('/une-annonce/{id}','AnnonceController@getAnnonceByUser')->name('utilisateur.une.annonces')->middleware('auth');
+Route::get('/mes-annonces', 'AnnonceController@getAnnonceByUser')->name('mes.annonces')->middleware('auth');
+Route::get('/une-annonce/{id}', 'AnnonceController@getAnnonceByUser')->name('utilisateur.une.annonces')->middleware('auth');
