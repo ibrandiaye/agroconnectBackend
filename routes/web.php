@@ -46,10 +46,5 @@ Route::get('/annonces/categorie/{id}', 'AnnonceController@getAnnoncesByCategorie
 Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name('annonce.all.admin');
 Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
 Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
-<<<<<<< HEAD
 Route::get('/mes-annonces', 'AnnonceController@getAnnonceByUser')->name('mes.annonces')->middleware('auth');
-Route::get('/une-annonce/{id}', 'AnnonceController@getAnnonceUserById')->name('utilisateur.une.annonces')->middleware('auth');
-=======
-Route::get('/mes-annonces','AnnonceController@getAnnonceByUser')->name('mes.annonces')->middleware('auth');
-Route::get('/une-annonce/utilisateur/{id}','AnnonceController@getAnnonceUserById')->name('utilisateur.une.annonces')->middleware('auth');
->>>>>>> 4577cf272039ab06cb850e9d5767086724c64a76
+Route::get('/une-annonce/utilisateur/{id}', 'AnnonceController@getAnnonceUserById')->name('utilisateur.une.annonces')->middleware('auth');
