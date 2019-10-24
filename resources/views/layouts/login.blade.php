@@ -16,6 +16,7 @@
         <link href="/asset/css/metismenu.min.css" rel="stylesheet" type="text/css">
         <link href="/asset/css/icons.css" rel="stylesheet" type="text/css">
         <link href="/asset/css/style.css" rel="stylesheet" type="text/css">
+        <script src="/asset/js/jquery.min.js"></script>
 
     </head>
 
@@ -23,7 +24,7 @@
         @yield('content')
 
         <!-- jQuery  -->
-        <script src="/asset/js/jquery.min.js"></script>
+
         <script src="/asset/js/bootstrap.bundle.min.js"></script>
         <script src="/asset/js/metismenu.min.js"></script>
         <script src="/asset/js/jquery.slimscroll.js"></script>
