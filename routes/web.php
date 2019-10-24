@@ -50,4 +50,4 @@ Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name(
 Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
 Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
 Route::get('/mes-annonces','AnnonceController@getAnnonceByUser')->name('mes.annonces')->middleware('auth');
-Route::get('/une-annonce/{id}','AnnonceController@getAnnonceByUser')->name('utilisateur.une.annonces')->middleware('auth');
+Route::get('/une-annonce/{id}','AnnonceController@getAnnonceUserById')->name('utilisateur.une.annonces')->middleware('auth');

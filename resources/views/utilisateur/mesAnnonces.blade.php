@@ -34,7 +34,7 @@
                             <a class="add-to-cart" href="#">Modifier</a>
                             <div class="action">
                                 <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-                                <a href="{{route('une.annonce',[$annonce->id])}}" title="View"><i class="fa fa-compress"></i></a>
+                                <a href="{{route('utilisateur.une.annonces',[$annonce->id])}}" title="View"><i class="fa fa-compress"></i></a>
                             </div>
                         </div>
                     </div>

@@ -55,9 +55,9 @@ class AnnonceRepository extends RessourceRepository{
             ->get();
     }
     public function getAnnonceUserById($id){
-        return Annonce::with(['produit','user','posters','posters.user'])
+        return Annonce::with(['produit','produit.sousCategorie','produit.sousCategorie.categorie','user','posters','posters.user'])
             ->where('id',$id)
-            ->get();
+            ->first();
     }
    /* public function getAnnonceByUser($id){
         return Annonce::with(['user','posters','posters.user'])
