@@ -21,7 +21,7 @@ class AnnonceController extends Controller
     }
     public function index()
     {
-        //
+
     }
 
     /**
@@ -124,6 +124,14 @@ class AnnonceController extends Controller
     public function getAnnonceToValidate(){
         $annonces= $this->annonceRepository->getAnnonceNoValidate();
         return view('annonces.listeAnnoncesAValider',compact('annonces'));
+    }
+    public function  getAnnonceByUser(){
+       $annonces = $this->annonceRepository->getAnnonceByUser(Auth::id());
+        return view('utilisateur.mesAnnonces',compact('annonces'));
+    }
+    public function getAnnonceUserById($id){
+        $annonce = $this->annonceRepository->getAnnonceUserById($id);
+        return view('utilisateur.uneAnnonce',compact('annonce'));
     }
     // function for application mobile
     public function getAllannonceApi(){

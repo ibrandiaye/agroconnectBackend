@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CategorieRepository;
 use App\Repositories\InteresseRepository;
+use App\Repositories\ServiceRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,9 +12,13 @@ class InteresseController extends Controller
 {
 
     protected $interesseRepository;
-
-    public function __construct(InteresseRepository $interesseRepository){
+    protected $serviceRepository;
+    protected $categorieRepository;
+    public function __construct(InteresseRepository $interesseRepository, ServiceRepository $serviceRepository,
+                                CategorieRepository $categorieRepository){
         $this->interesseRepository = $interesseRepository;
+        $this->serviceRepository =$serviceRepository;
+        $this->categorieRepository = $categorieRepository;
     }
     /**
      * Display a listing of the resource.
@@ -21,7 +27,9 @@ class InteresseController extends Controller
      */
     public function index()
     {
-        //
+        $services = $this->serviceRepository->getAllServiceWithRelation();
+        $categories = $this->categorieRepository->getCategorieWithSousCategorie();
+        return view('service.liste',compact('services','categories'));
     }
 
     /**
