@@ -42,7 +42,7 @@
                     <li>
                         <a href="{{ route('login') }}">Se Connecter</a> |
 
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('register') }}">Créer Compte</a>
                     </li>
                     {{-- <li>
                     </li> --}}
@@ -57,7 +57,7 @@
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Déconnexion
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -133,7 +133,7 @@
                 </div>
                 <!-- End cart -->
                 <div class="search dropdown">
-                    <i class="fa fa-search dropdown-toggle" data-toggle="dropdown"></i>
+                    {{-- <i class="fa fa-search dropdown-toggle" data-toggle="dropdown"></i>
                     <div class="search-form dropdown-menu">
                         <form action="#" method="get">
                             <input type="text" autocomplete="off" placeholder="Enter Keywords To Search..." value="" class="ajax_autosuggest_input ac_input" name="s">
@@ -141,7 +141,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </button>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- End search -->
             </div>

@@ -103,7 +103,7 @@
 
                             </div>--}}
                             <!-- End col-md-6 -->
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="display: flex; justify-content: flex-start;">
                                 <button type="submit" class="btn link-button">Enregistrer</button>
                             </div>
                         </form>

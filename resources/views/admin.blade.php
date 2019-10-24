@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title>Agroconnect</title>
-    <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
-    <meta content="Themesdesign" name="author" />
+    <meta content="Agroconnect" name="description" />
+    <meta content="Agroconnect" name="author" />
     <link rel="shortcut icon" href="/asset/images/favicon.ico">
     @yield('css')
     <!--Morris Chart CSS -->
@@ -30,9 +30,10 @@
 
         <!-- LOGO -->
         <div class="topbar-left">
-            <a href="index.html" class="logo">
+            <a href="/home" class="logo">
                     <span class="logo-light">
-                            <i class="mdi mdi-camera-control"></i> Stexo
+                            {{-- <i class="mdi mdi-camera-control"></i> --}}
+                             Agroconnect
                         </span>
                     <span class="logo-sm">
                             <i class="mdi mdi-camera-control"></i>
@@ -42,21 +43,6 @@
 
         <nav class="navbar-custom">
             <ul class="navbar-right list-inline float-right mb-0">
-
-                <!-- language-->
-                <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="/asset/images/flags/us_flag.jpg" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated language-switch">
-                        <a class="dropdown-item" href="#"><img src="/asset/images/flags/french_flag.jpg" alt="" height="16" /><span> French </span></a>
-                        <a class="dropdown-item" href="#"><img src="/asset/images/flags/spain_flag.jpg" alt="" height="16" /><span> Spanish </span></a>
-                        <a class="dropdown-item" href="#"><img src="/asset/images/flags/russia_flag.jpg" alt="" height="16" /><span> Russian </span></a>
-                        <a class="dropdown-item" href="#"><img src="/asset/images/flags/germany_flag.jpg" alt="" height="16" /><span> German </span></a>
-                        <a class="dropdown-item" href="#"><img src="/asset/images/flags/italy_flag.jpg" alt="" height="16" /><span> Italian </span></a>
-                    </div>
-                </li>
-
                 <!-- full screen -->
                 <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
                     <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
@@ -65,7 +51,7 @@
                 </li>
 
                 <!-- notification -->
-                <li class="dropdown notification-list list-inline-item">
+                {{-- <li class="dropdown notification-list list-inline-item">
                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="mdi mdi-bell-outline noti-icon"></i>
                         <span class="badge badge-pill badge-danger noti-icon-badge">3</span>
@@ -112,7 +98,7 @@
                             View all <i class="fi-arrow-right"></i>
                         </a>
                     </div>
-                </li>
+                </li> --}}
 
                 <li class="dropdown notification-list list-inline-item">
                     <div class="dropdown notification-list nav-pro-img">
@@ -122,9 +108,9 @@
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
                             <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle"></i> Profile</a>
-                            <a class="dropdown-item" href="#"><i class="mdi mdi-wallet"></i> Wallet</a>
+                            {{-- <a class="dropdown-item" href="#"><i class="mdi mdi-wallet"></i> Wallet</a>
                             <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i> Settings</a>
-                            <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
+                            <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a> --}}
                             <div class="dropdown-divider"></div>
                             <a onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-power text-danger"></i>  Se déconnecter</a>
