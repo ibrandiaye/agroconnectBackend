@@ -16,4 +16,12 @@ class UserRepository extends RessourceRepository{
         $this->model = $user;
     }
 
+
+   /* public function getAnnoncesAndServicesByUser(){
+        return User::with(['annonces' => function ($query) {
+            $query->paginate(15)
+            ->orderBy('id','desc');
+        },'annonces','services']);
+    }*/
+
 }

@@ -49,7 +49,22 @@ class AnnonceRepository extends RessourceRepository{
             ->where('etat','=',0)
             ->get();
     }
-
+    public function getAnnonceByUser($id){
+        return Annonce::with(['produit','user','posters','posters.user'])
+            ->where('user_id',$id)
+            ->get();
+    }
+    public function getAnnonceUserById($id){
+        return Annonce::with(['produit','user','posters','posters.user'])
+            ->where('id',$id)
+            ->get();
+    }
+   /* public function getAnnonceByUser($id){
+        return Annonce::with(['user','posters','posters.user'])
+            ->where('user_id',$id)
+            ->get();
+    }
+*/
 
 
 }

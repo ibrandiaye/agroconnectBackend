@@ -17,10 +17,8 @@
 Route::get('/', 'AnnonceController@getLastAnnonces')->name('acceuil');
 Route::get('/register', 'RegisterControler@index')->name('register');
 Auth::routes();
-Route::resource('/annonce', 'AnnonceController');
-Route::get('/annonces', 'AnnonceController@getAllannonce')->name('liste.annonce');
-Route::get('/annonces/categorie/{id}', 'AnnonceController@getAnnoncesByCategorie')->name('categorie.annonces');
-Route::get('/une-annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce')->middleware('auth');
+Route::get('/utilisateur/profil', 'UserController@profil')->name('utilsateur.profil')->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/utilisateur', 'UserController');
 Route::resource('/categories', 'CategorieController')->middleware('auth');
@@ -32,11 +30,24 @@ Route::resource('/cooperation', 'CooperationController');
 Route::resource('/parcelle', 'ParcelleController');
 Route::resource('/grenier', 'GrenierController');
 Route::resource('/culture', 'CultureController');
-Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
-Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name('annonce.all.admin');
-Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
+
+
 Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin');
 Route::get('/tous-les-cultures/', 'CultureController@getAllCultureAdmin')->name('culture.all.admin');
-Route::resource('/service', 'ServiceController')->middleware('auth');
+Route::resource('/service', 'ServiceController');
+Route::get('/service/create', 'ServiceController@create')->name('service.create')->middleware('auth');
 Route::get('/service/categorie/{id}', 'ServiceController@getServiceByCategorie')->name('service.souscategorie');
 Route::resource('/interesse', 'InteresseController')->middleware('auth');
+
+
+Route::resource('/annonce', 'AnnonceController');
+Route::get('/utilisateur/annonce', 'AnnonceController@getAnnonceByUser')->name('utilisateur.annonce');
+Route::get('/annonce/create', 'AnnonceController@create')->name('annonce.create')->middleware('auth');
+Route::get('/annonces', 'AnnonceController@getAllannonce')->name('liste.annonce');
+Route::get('/annonces/categorie/{id}', 'AnnonceController@getAnnoncesByCategorie')->name('categorie.annonces');
+Route::get('/une-annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce')->middleware('auth');
+Route::get('/tous-les-annonces/', 'AnnonceController@getAllannonceAdmin')->name('annonce.all.admin');
+Route::get('/valider-annonce/{id}', 'AnnonceController@validerAnnonce')->name('valider.annonce');
+Route::get('/annonce-a-valider/', 'AnnonceController@getAnnonceToValidate')->name('annonce.invalide');
+Route::get('/mes-annonces','AnnonceController@getAnnonceByUser')->name('mes.annonces')->middleware('auth');
+Route::get('/une-annonce/{id}','AnnonceController@getAnnonceByUser')->name('utilisateur.une.annonces')->middleware('auth');
