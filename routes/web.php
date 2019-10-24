@@ -17,15 +17,17 @@
 Route::get('/', 'AnnonceController@getLastAnnonces')->name('acceuil');
 Route::get('/register', 'RegisterControler@index')->name('register');
 Auth::routes();
-Route::resource('/annonce', 'AnnonceController')->middleware('auth');
+Route::resource('/annonce', 'AnnonceController');
 Route::get('/annonces', 'AnnonceController@getAllannonce')->name('liste.annonce');
-Route::get('/une-annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce');
+Route::get('/annonces/categorie/{id}', 'AnnonceController@getAnnoncesByCategorie')->name('categorie.annonces');
+Route::get('/une-annonce/{id}', 'AnnonceController@getOneAnnonce')->name('une.annonce')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/utilisateur', 'UserController');
 Route::resource('/categories', 'CategorieController')->middleware('auth');
 Route::resource('/sous-categorie', 'SousCategorieController');
 Route::resource('/produit', 'ProduitController');
 Route::resource('/poster', 'PosterController');
+Route::post('/poster', 'PosterController@store')->name('poster.store')->middleware('auth');
 Route::resource('/cooperation', 'CooperationController');
 Route::resource('/parcelle', 'ParcelleController');
 Route::resource('/grenier', 'GrenierController');
@@ -37,3 +39,4 @@ Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAd
 Route::get('/tous-les-cultures/', 'CultureController@getAllCultureAdmin')->name('culture.all.admin');
 Route::resource('/service', 'ServiceController')->middleware('auth');
 Route::get('/service/categorie/{id}', 'ServiceController@getServiceByCategorie')->name('service.souscategorie');
+Route::resource('/interesse', 'InteresseController')->middleware('auth');

@@ -45,6 +45,9 @@ class User extends Authenticatable
     public function paiements(){
         return $this->hasMany(Paiement::class);
     }
+    public function interesses(){
+        return $this->hasMany(Interesse::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

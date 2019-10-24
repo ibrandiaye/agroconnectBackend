@@ -200,6 +200,8 @@
 
                         </ul>
                     </li>
+                    @auth
+                    @if(Auth::user()->role_id==4)
                     <li>
                         <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Coopérative <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
                         <ul class="submenu">
@@ -228,6 +230,8 @@
                             </li>
                         </ul>
                     </li>
+                        @endif
+                    @endauth
                 </ul>
 
             </div>

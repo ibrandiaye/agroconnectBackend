@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\AnnonceRepository;
 use App\Repositories\ProduitRepository;
+use App\Repositories\SousCategorieRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +12,12 @@ class AnnonceController extends Controller
 {
     protected $annonceRepository;
     protected  $produitRepository;
-    public function __construct(AnnonceRepository $annonceRepository, ProduitRepository $produitRepository){
+    protected $sousCategorieRepository;
+    public function __construct(AnnonceRepository $annonceRepository, ProduitRepository $produitRepository,
+            SousCategorieRepository $sousCategorieRepository){
         $this->annonceRepository = $annonceRepository;
         $this->produitRepository = $produitRepository;
+        $this->sousCategorieRepository = $sousCategorieRepository;
     }
     public function index()
     {
@@ -97,8 +101,10 @@ class AnnonceController extends Controller
         return view('annonces.detailAnnonce',compact('annonce'));
     }
     public function getAllannonce(){
+        $sousCategories = $this->sousCategorieRepository->getAll();
         $annonces = $this->annonceRepository->getAllAnnonce();
-        return  view('annonces.listeAnnonces',compact('annonces'));
+
+        return  view('annonces.listeAnnonces',compact('annonces','sousCategories'));
     }
     public function getAllannonceAdmin(){
         $annonces = $this->annonceRepository->getAllAnnonce();
@@ -109,6 +115,11 @@ class AnnonceController extends Controller
         $annonce->etat=true;
         $annonce->save();
         return redirect()->back();
+    }
+    public function getAnnoncesByCategorie($id){
+        $sousCategories = $this->sousCategorieRepository->getAll();
+       $annonces = $this->annonceRepository->getAnnonceByCategorie($id);
+        return  view('annonces.listeAnnonces',compact('annonces','sousCategories'));
     }
     public function getAnnonceToValidate(){
         $annonces= $this->annonceRepository->getAnnonceNoValidate();

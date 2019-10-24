@@ -7,7 +7,7 @@
                 <li class="active">Table</li>
             </ul>
             <div class="banner-grid col-md-12">
-                <img src="assets/images/Futurelife-banner-grid.jpg" alt="Banner">
+                <img src="/assets/images/Futurelife-banner-grid.jpg" alt="Banner">
             </div>
             <!-- End Banner Grid -->
             <div class="ordering">
@@ -15,12 +15,11 @@
                 <span class="list"></span>
                 <span class="col active"></span>
                 <form action="#" method="get" class="order-by">
-                    <select class="orderby" name="orderby">
-                        <option>Sort by popularity</option>
-                        <option selected="selected">Sort by average rating</option>
-                        <option>Sort by newness</option>
-                        <option>Sort by price: low to high</option>
-                        <option>Sort by price: high to low</option>
+                    <select class="orderby" name="orderby" id="sousCat">
+                        <option>Trier par</option>
+                        @foreach($sousCategories as $sousCategorie)
+                        <option value="{{$sousCategorie->id}}">{{$sousCategorie->libelle}}</option>
+                        @endforeach
                     </select>
                 </form>
                 <p class="result-count">Showing 1-12 of 30 relults</p>
@@ -66,4 +65,14 @@
             </div>
         </div>
     </div>
+@endsection
+@section("script")
+<script>
+    $(document).ready( function () {
+        $('#sousCat').change(function(){
+
+            window.location.replace('http://127.0.0.1:8000/annonces/categorie/'+$('#sousCat').val());
+        })
+    } );
+</script>
 @endsection

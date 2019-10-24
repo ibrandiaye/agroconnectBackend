@@ -12,6 +12,7 @@ namespace App\Repositories;
 use App\Annonce;
 
 class AnnonceRepository extends RessourceRepository{
+    private $sousCategorieId;
     public function __construct(Annonce $annonce){
         $this->model = $annonce;
     }
@@ -34,9 +35,18 @@ class AnnonceRepository extends RessourceRepository{
             ->orderBy('id','desc')
             ->get();
     }
+    public function getAnnonceByCategorie($id){
+        $this->sousCategorieId = $id;
+        return Annonce::with(['produit','produit.sousCategorie' => function ($query) {
+            $query->where('id','=',$this->sousCategorieId);
+        },'produit.sousCategorie.categorie','user'])
+            ->orderBy('id','desc')
+
+            ->get();
+    }
     public function getAnnonceNoValidate(){
         return Annonce::with(['produit','produit.sousCategorie','produit.sousCategorie.categorie','user'])
-            ->where('etat',false)
+            ->where('etat','=',0)
             ->get();
     }
 

@@ -44,7 +44,10 @@
                     </div>
                     <div class="text">
                         <h3>{{$service->titre}}</h3>
-                        {!!$service->description!!}.
+                        {!!$service->description!!}
+                        <form method="post" action="{{url('interesse')}}">
+                        <input type="submit" class="btn link-button pull-right" >intérresé
+                        </form>
                     </div>
                 </div>
                 @endforeach
@@ -58,7 +61,7 @@
                         <h3 class="widget-title">{{ $categorie->libelle  }}</h3>
                         <ul>
                             @foreach($categorie->sousCategories as $sousCategorie)
-                                <li><a title="Categories" href="{{ route('service.souscategorie',['id'=> $sousCategorie->id]) }}">{{$sousCategorie->libelle}}</a></span></li>
+                                <li><a title="Categories" href="{{ route('service.souscategorie',['id'=> $sousCategorie->id]) }}">{{$sousCategorie->libelle}}</a></li>
                             @endforeach
                         </ul>
                     </aside>

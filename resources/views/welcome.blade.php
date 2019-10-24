@@ -65,7 +65,7 @@
                 <div class="logo"><a href="#" title="Futurelife">Futurelife</a></div>
                 <nav class="menu-top">
                     <ul>
-                        <li class="level-1 dropdown">
+                       {{-- <li class="level-1 dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Stores">Marché Virtuel</a>
                             <i class="fa fa-angle-down"></i>
                             <ul class="menu-level2 dropdown-menu">
@@ -75,9 +75,10 @@
                                 <li class="level2"><a href="home_v4.html" title="Store 02">Store 04</a></li>
                                 <li class="level2"><a href="home_v5.html" title="Store 03">Store 05</a></li>
                             </ul>
-                        </li>
+                        </li>--}}
+                        <li class="level-1"><a href="{{route('liste.annonce')}}" title="Projects">Marché Virtuel</a></li>
                         <li class="level-1"><a href="#" title="Projects">Coopérative</a></li>
-                        <li class="level-1"><a href="#" title="collection">Service</a></li>
+                        <li class="level-1"><a href="{{route('service.index')}}" title="collection">Service</a></li>
                         <li class="level-1"><a href="#" title="Blog">Méteo</a></li>
                         {{--<li class="level-1"><a href="#" title="about us">about us</a></li>--}}
                     </ul>
@@ -339,6 +340,7 @@
 <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="/assets/js/instafeed.min.js"></script>
 <script type="text/javascript" src="/assets/js/store.js"></script>
+@yield("script")
 </body>
 </html>
 

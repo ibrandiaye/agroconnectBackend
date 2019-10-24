@@ -91,7 +91,9 @@
                             <select id="inputRole" class="form-control" name="role_id">
                                 <option value="">Vous êtes...</option>
                                 @foreach($roles as $role)
+                                    @if($role->libelle!='Admin' and $role->libelle!='Cooperative')
                                     <option value="{{ $role->id }}">{{ $role->libelle }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             </div>
