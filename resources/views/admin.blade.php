@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Stexo - Responsive Admin & Dashboard Template | Themesdesign</title>
+    <title>Agroconnect</title>
     <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
     <meta content="Themesdesign" name="author" />
     <link rel="shortcut icon" href="/asset/images/favicon.ico">
@@ -126,7 +126,11 @@
                             <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i> Settings</a>
                             <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                            <a onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-power text-danger"></i>  Se déconnecter</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                         </div>
                     </div>
                 </li>

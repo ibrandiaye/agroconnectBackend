@@ -38,7 +38,6 @@
         <div class="container">
             <div class="title-text">
                 <h3>Nouvelles annonces</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
             <!-- End title text -->
             <div class="slider-product our-new-product">
@@ -82,7 +81,7 @@
                                 </div>
                            @endforeach
                         </div>
-                        <!-- End product-tab-content products                                     -->
+                        <!-- End product-tab-content products -->
                     </div>
                 </div>
             </div>
@@ -127,8 +126,7 @@
             </div>
             <!-- End Banner Center -->
             <div class="title-text">
-                <h3>from our blog</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h3>Conseils</h3>
             </div>
             <!-- End title text -->
             <div class="blog-post-container space-100">
@@ -185,7 +183,7 @@
 
         </div>
         <!-- End container -->
-        <div class="newsletter">
+        {{-- <div class="newsletter">
             <div class="text">
                 <h3>Newsletter</h3>
                 <p>Subscribe to the Futurelife mailing list to receive updates on new arrivals, special offers and other discount information.</p>
@@ -194,41 +192,11 @@
                     <button class="button" title="Subscribe" type="submit">Subscribe</button>
                 </form>
             </div>
-        </div>
+        </div> --}}
         <!-- End NewsLetter -->
-        <div class="shipping-container">
-            <div class="container">
-                <div class="col-md-4">
-                    <div class="shipping-item">
-                        <p class="images"></p>
-                        <div class="text">
-                            <h3>24/7 CUSTOMER SERVICE</h3>
-                            <p>Service Support 24/7</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="shipping-item">
-                        <p class="images"></p>
-                        <div class="text">
-                            <h3>MONEY BACK GUARANTEE !</h3>
-                            <p>100% Money Back - 30 Days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="shipping-item">
-                        <p class="images"></p>
-                        <div class="text">
-                            <h3>FREE SHIPPING WORLDWIDE</h3>
-                            <p>Free shipping worldwide</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- End Shipping-Container -->
-        <div id="instagram" class="show">
+        {{-- <div id="instagram" class="show">
             <div class="item-instagram">
                 <img alt="" src="assets/images/Futurelife-banner-bottom1.jpg">
                 <div class="action">
@@ -271,7 +239,7 @@
                     <a href="https://www.instagram.com/p/BF4ZSYDynU8/">View more</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- End banner-bottom -->
         <!-- End banner-bottom -->
     </div>
