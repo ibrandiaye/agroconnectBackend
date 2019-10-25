@@ -154,8 +154,10 @@
                 <ul class="metismenu" id="side-menu">
                     <li class="menu-title">Menu</li>
                     <li>
-                        <a href="index.html" class="waves-effect">
-                            <i class="icon-accelerator"></i><span class="badge badge-success badge-pill float-right">9+</span> <span> Dashboard </span>
+                        <a href="/home" class="waves-effect">
+                            <i class="icon-accelerator"></i>
+                            {{-- <span class="badge badge-success badge-pill float-right">9+</span>  --}}
+                            <span> Menu Principal </span>
                         </a>
                     </li>
 
@@ -170,8 +172,7 @@
                         <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                         <ul class="submenu">
                             <li><a href="{{ route('categories.create') }}">Ajouter</a></li>
-                            <li><a href="">Liste </a></li>
-                            <li><a href="email-compose.html">Email Compose</a></li>
+                            <li><a href="{{ route('categories.index') }}">Liste </a></li>
                         </ul>
                     </li>
                     <li>
@@ -179,7 +180,6 @@
                         <ul class="submenu">
                             <li><a href="{{ route('sous-categorie.create') }}">Ajouter</a></li>
                             <li><a href="{{route('sous-categorie.index')}}">Liste </a></li>
-                            <li><a href="email-compose.html">Email Compose</a></li>
                         </ul>
                     </li>
                     <li>
@@ -187,7 +187,6 @@
                         <ul class="submenu">
                             <li><a href="{{ route('annonce.invalide') }}">à Valider</a></li>
                             <li><a href="{{route('annonce.all.admin')}}">Toutes les annonces</a></li>
-
                         </ul>
                     </li>
                     @auth
@@ -241,7 +240,9 @@
         <div class="content">
         @yield('content')
     <footer class="footer">
-        © 2019 Stexo <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</span>.
+        © 2019 Agroconnect <span class="d-none d-sm-inline-block"> -
+            {{-- <i class="mdi mdi-heart text-danger"></i>  --}}
+            by Digi221</span>.
     </footer>
 
 </div>

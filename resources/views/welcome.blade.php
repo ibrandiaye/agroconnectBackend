@@ -107,47 +107,7 @@
                 </nav>
             </div>
 
-            <div class="col-md-2 col-sm-3 col-xs-12">
-                <div class="cart dropdown">
-                    <a class="icon-cart" href="#" title="Cart">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="cart-count">02</span>
-                    </a>
-                    <div class="cart-list dropdown-menu">
-                        <ul class="list">
-                            <li>
-                                <a href="#" title="" class="cart-product-image"><img src="assets/images/Futurelife-product-cart1.jpg" alt="Product"></a>
-                                <div class="text">
-                                    <p class="product-name">Smart TV Ultra HD 40 inch</p>
-                                    <p class="product-price">$ 650.99</p>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#" title="" class="cart-product-image"><img src="assets/images/Futurelife-product-cart1.jpg" alt="Product"></a>
-                                <div class="text">
-                                    <p class="product-name">Smart TV Ultra HD 40 inch</p>
-                                    <p class="product-price">$ 650.99</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <p class="total"><span>Total:</span> $1121.98</p>
-                        <a class="checkout" href="#" title="">Check out</a>
-                    </div>
-                </div>
-                <!-- End cart -->
-                <div class="search dropdown">
-                    {{-- <i class="fa fa-search dropdown-toggle" data-toggle="dropdown"></i>
-                    <div class="search-form dropdown-menu">
-                        <form action="#" method="get">
-                            <input type="text" autocomplete="off" placeholder="Enter Keywords To Search..." value="" class="ajax_autosuggest_input ac_input" name="s">
-                            <button type="submit" class="icon-search">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                        </form>
-                    </div> --}}
-                </div>
-                <!-- End search -->
-            </div>
+
         </div>
         <!-- End container -->
     </div>

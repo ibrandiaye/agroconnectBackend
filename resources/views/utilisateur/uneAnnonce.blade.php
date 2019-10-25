@@ -58,47 +58,8 @@
                         <p class="price">{{$annonce->quantite}} {{ $annonce->unite }}</p>
                     </div>
                     <!-- End Price -->
-                    <div class="options">
-                        <div class="title-product">
-                            <h3>Options</h3>
-                        </div>
-                        <form class="form-horizontal">
-                            <div class="form-group col-md-12">
-                                <label class=" control-label" for="inputName">Size*</label>
-                                <select class="form-control">
-                                    <option value="">- Please select -</option>
-                                    <option value="XL">XL</option>
-                                    <option value="XXL">XXL</option>
-                                    <option value="SMALL">SMALL</option>
-                                    <option value="MEDIUM">MEDIUM</option>
-                                </select>
-                            </div><div class="form-group">
-                                <label class=" control-label" for="inputName">Color*</label>
-                                <select class="form-control">
-                                    <option value="">- Please select -</option>
-                                    <option value="BLUE">Blue</option>
-                                    <option value="Red">Red</option>
-                                    <option value="Yellow">Yellow</option>
-                                </select>
-                            </div>
-                        </form>
-                        <div class="quantity space-30">
-                            <p class="color-red">Repuired Fiields *</p>
-                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="{{$annonce->quantite}}" min="1" step="1">
-                            <span class="price"></span>
-                        </div>
-                        <!-- End quanity -->
-                    </div>
+
                     <!-- End Options -->
-                    <div class="products">
-                        <div class="product product-details">
-                            <button href="#" class="add-to-cart" data-toggle="modal" data-target="#myModal">Acheter</button>
-                            <div class="action">
-                                <a title="Like" href="#"><i class="fa fa-heart-o"></i></a>
-                                <a title="View" href="#"><i class="fa fa-compress"></i></a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- End product-details-content -->
