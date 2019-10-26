@@ -19,8 +19,13 @@ class UserController extends Controller
     protected $roleRepository;
     protected $userRepository;
 
-    public function __construct(PaysanRepository $paysanRepository, ParticulierRepository $particulierRepository,
-                    EntrepriseRepository $entrepriseRepository, RoleRepository $roleRepositor, UserRepository $userRepository){
+    public function __construct(
+        PaysanRepository $paysanRepository,
+        ParticulierRepository $particulierRepository,
+        EntrepriseRepository $entrepriseRepository,
+        RoleRepository $roleRepositor,
+        UserRepository $userRepository
+    ) {
         $this->particulierRepository = $particulierRepository;
         $this->entrepriseRepository = $entrepriseRepository;
         $this->paysanRepository = $paysanRepository;
@@ -40,7 +45,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = $this->roleRepository->getAll();
-        return view('utilisateur.inscription',compact('roles'));
+        return view('utilisateur.inscription', compact('roles'));
     }
 
     /**
@@ -51,37 +56,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users|max:255',
-            'password1' => 'required',
-            'password2' => 'required',
-            'telephone' => 'required|unique:users',
-            'adresse' => 'required',
-            'role_id' => 'required',
-        ]);
 
-        if($request->role_id==1){
-           /* $user =User::create([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'password' => bcrypt($request['password1']),
-                'telephone' => $request['telephone'],
-                'adresse'=> $request['adresse'],
-                'role_id'=> $request['role_id']
-            ]);*/
+        if ($request->role_id == 1) {
+
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
             $user->password = bcrypt(bcrypt($request['password1']));
             $user->telephone = $request['telephone'];
-            $user->adresse= $request['adresse'];
-            $user->role_id= $request['role_id'];
-            //$user->save();
-            //$idUser =  DB::table('users')->where('email', $request->input('emailet'))->value('id');
-            //$request->merge(['password' => bcrypt($request->password)]);
-            //$request->password
-            //$user = $this->userRepository->store($request->all());
+            $user->adresse = $request['adresse'];
+            $user->role_id = $request['role_id'];
             $request->merge(['user_id' => $user->id]);
             $paysan = $this->paysanRepository->store($request->all());
             return back();
@@ -133,8 +117,50 @@ class UserController extends Controller
     {
         //
     }
-    public function profil(){
+    public function profil()
+    {
         $user = $this->userRepository->getById(Auth::id());
-        return view('auth.profil',compact('user'));
+        return view('auth.profil', compact('user'));
+    }
+
+
+
+    //function for, API
+
+    public function storeAPI(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users|max:255',
+            'password' => 'required',
+            'password_confirmation' => 'required',
+            'telephone' => 'required|unique:users',
+            'adresse' => 'required',
+            'role_id' => 'required',
+        ]);
+
+
+        if ($request->role_id == 1) {
+
+            /*$user = new User();
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->password = bcrypt(bcrypt($request['password1']));
+            $user->telephone = $request['telephone'];
+            $user->adresse= $request['adresse'];
+            $user->role_id= $request['role_id'];*/
+            $user = User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => bcrypt($request['password_confirmation']),
+                'telephone' => $request['telephone'],
+                'adresse' => $request['adresse'],
+                'role_id' => $request['role_id']
+            ]);
+            $request->merge(['user_id' => $user->id, 'matricule' => time() . $user->id]);
+            $paysan = $this->paysanRepository->store($request->all());
+            return response()->json("ok");
+        }
+        return response()->json("ko");
     }
 }

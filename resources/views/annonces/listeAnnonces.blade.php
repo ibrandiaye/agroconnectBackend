@@ -6,12 +6,10 @@
                 <li><a href="#">Home</a></li>
                 <li class="active">Table</li>
             </ul>
-            <div class="banner-grid col-md-12">
-                <img src="/assets/images/Futurelife-banner-grid.jpg" alt="Banner">
-            </div>
+
             <!-- End Banner Grid -->
             <div class="ordering">
-                <a href="#" title="show sidebar">Show Slidebar</a>
+
                 <span class="list"></span>
                 <span class="col active"></span>
                 <form action="#" method="get" class="order-by">
@@ -22,7 +20,6 @@
                         @endforeach
                     </select>
                 </form>
-                <p class="result-count">Showing 1-12 of 30 relults</p>
             </div>
             <!-- End ordering -->
         </div>
@@ -52,7 +49,7 @@
             <!-- End container -->
         </div>
         <!-- End product-content products  -->
-        <div class="container">
+       {{-- <div class="container">
             <div class="pagination-container">
                 <nav class="pagination">
                     <span class="page-numbers current">1</span>
@@ -63,7 +60,7 @@
                 </nav>
                 <p class="result-count">Showing 1-12 of 30 relults</p>
             </div>
-        </div>
+        </div>--}}
     </div>
 @endsection
 @section("script")

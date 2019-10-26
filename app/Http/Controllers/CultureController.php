@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\CultureRepository;
 use Illuminate\Http\Request;
+use Image;
 
 class CultureController extends Controller
 {
@@ -42,6 +43,12 @@ class CultureController extends Controller
      */
     public function store(Request $request)
     {
+
+        /* $this->validate($request, [
+            'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg',
+            'libelle'=>'required'
+        ]);
+
         if ($request->hasFile('filename')) {
             $fileNameWithExtention = $request->file('filename')->getClientOriginalName();
 
@@ -53,7 +60,10 @@ class CultureController extends Controller
             $request->file('filename')->storeAs('public/dossier', $fileNameToStore);
             $request->file('filename')->storeAs('public/dossier/thumbnail', $fileNameToStore);
             $request->merge(['image' => $fileNameToStore]);
-        }
+        }*/
+        $request->merge(['image' => 'fdxfxgf']);
+        $this->cultureRepository->store($request->all());
+        return redirect()->back();
     }
 
     /**

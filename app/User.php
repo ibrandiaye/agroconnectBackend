@@ -15,41 +15,57 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id','telephone','adresse'
+        'name', 'email', 'password', 'role_id', 'telephone', 'adresse'
     ];
 
-    public function role(){
+    public function role()
+    {
         return $this->belongsTo(Role::class);
     }
-    public function paysan(){
+    public function paysan()
+    {
         return $this->belongsTo(Paysan::class);
     }
-    public function entreprise(){
+    public function entreprise()
+    {
         return $this->belongsTo(Entreprise::class);
     }
-    public function cooperations(){
+    public function cooperations()
+    {
         $this->hasMany(Cooperation::class);
     }
-    public function publications(){
+    public function publications()
+    {
         $this->hasMany(Publication::class);
     }
-    public function particulier(){
+    public function particulier()
+    {
         $this->belongsTo(Particulier::class);
     }
-    public function annonces(){
+    public function annonces()
+    {
         $this->hasMany(Annonce::class);
     }
-    public function posters(){
+    public function posters()
+    {
         return $this->hasMany(Poster::class);
     }
-    public function paiements(){
+    public function paiements()
+    {
         return $this->hasMany(Paiement::class);
     }
-    public function services(){
+    public function services()
+    {
         return $this->hasMany(Service::class);
     }
-    public function interesses(){
+    public function interesses()
+    {
         return $this->hasMany(Interesse::class);
+    }
+
+    public function conseils()
+    {
+        return $this->hasMany(Conseil::class);
     }
     /**
      * The attributes that should be hidden for arrays.

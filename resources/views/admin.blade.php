@@ -200,6 +200,13 @@
                     </li>
                     @endif
                     @endauth
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Bulletin Meteo <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('publication.create') }}">Ajouter Produit</a></li>
+                            <li><a href="{{route('publication.index')}}">Liste</a></li>
+                        </ul>
+                    </li>
                     @auth
                     @if(Auth::user()->role_id==4)
                     <li>
@@ -230,7 +237,7 @@
                             </li>
                         </ul>
                     </li>
-                    @endif
+                        @endif
                     @endauth
                 </ul>
 

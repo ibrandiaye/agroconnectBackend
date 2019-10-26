@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PublicationRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PublicationController extends Controller
 {
+    protected $publicationRepository;
+    public function __construct(PublicationRepository $publicationRepository)
+    {
+        $this->publicationRepository = $publicationRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        //
+        $meteos = $this->publicationRepository->getBulletionMeteo();
+        return view("meteo.meteo", compact('meteos'));
     }
 
     /**
@@ -23,7 +31,7 @@ class PublicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('publication.add');
     }
 
     /**
@@ -34,7 +42,20 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('audios')) {
+
+
+            $video = $request->file('audios');
+
+            $name = $video->getClientOriginalName();
+            $video->move(public_path() . '/audio/', $name);
+            $data[] = $name;
+            $request->merge(['audio' => $name]);;
+        }
+
+        $request->merge(['user_id' => Auth::id()]);
+        $this->publicationRepository->store($request->all());
+        return redirect()->back();
     }
 
     /**

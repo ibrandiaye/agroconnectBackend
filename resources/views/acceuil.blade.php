@@ -13,13 +13,13 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="active item">
-                            <a href="#" title="banner1"><img class="lazy-image" data-original="" alt="banner1" src="assets/images/Futurelife-slideshow1.jpg" /></a>
+                            <a href="#" title="banner1"><img class="lazy-image" data-original="" alt="banner1" src="assets/images/1.jpg" /></a>
                         </div>
                         <div class="item">
-                            <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/Futurelife-slideshow1.jpg" /></a>
+                            <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/2.jpg" /></a>
                         </div>
                         <div class="item">
-                            <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/Futurelife-slideshow1.jpg" /></a>
+                            <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/3.jpg" /></a>
                         </div>
                     </div>
                     <a class="carousel-control right" href="#myCarousel" data-slide="prev">

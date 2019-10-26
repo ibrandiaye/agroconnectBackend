@@ -12,7 +12,7 @@
                     <h3 class="widget-title">Bienvenue!</h3>
                     <ul>
                         <li><a href="{{route('mes.annonces')}}" title="Mes annonces">Mes annonces</a></li>
-                        <li><a href="#" title="Billing Information">Mes servives</a></li>
+                        <li><a href="{{ route("mes.services") }}" title="Billing Information">Mes servives</a></li>
                         <li><a href="#" title="Shipping Information">Shipping Information</a></li>
                     </ul>
                 </aside>

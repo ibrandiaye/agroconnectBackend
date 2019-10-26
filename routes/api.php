@@ -17,6 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/liste/annonces', 'AnnonceController@getAllannonce')
+Route::get('/liste/annonces', 'AnnonceController@getAllannonceApi')
     ->name('liste.annonces')
+    ->middleware('cors');
+Route::post('/enregistrer/utilisateur', 'UserController@storeAPI')
+    ->name('enregistrer.utilisateur')
+    ->middleware('cors');
+Route::get('/une/annonce/{id}', 'AnnonceController@getAnnonceById')
+    ->name('une.annonce')
+    ->middleware('cors');
+
+Route::get('/liste/cooperatives', 'CooperationController@getAllCooperation')
+    ->name('liste.cooperations')
     ->middleware('cors');

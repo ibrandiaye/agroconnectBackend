@@ -18,7 +18,7 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <form method="POST" action="{{ url('culture') }}" class="user" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('culture') }}"  enctype="multipart/form-data">
                     <!-- Default Card Example -->
                     <div class="card m-b-30">
 
@@ -31,9 +31,17 @@
                                             <label>Libelle</label>
                                             <input type="text" class="form-control form-control-user" name="libelle" id="libelle"  placeholder="Libelle" required>
                                         </div>
+                                        <div class="form-group lg-12">
+                                            <label>Description</label>
+                                            <textarea name="description" id="elm1"></textarea>
+                                            {{--<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+                                            <script>
+                                                CKEDITOR.replace( 'description' );
+                                            </script>--}}
+                                        </div>
                                         <div class="form-group lg-4">
                                             <label>Image</label>
-                                            <input type="file" name="image" id="filename"  required>
+                                            <input type="file" name="filename" id="filename"  >
                                         </div>
                                         <input type="submit" class="btn btn-primary btn-user btn-block" value="Enregistrer">
                                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Particulier;
 use App\Paysan;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -45,9 +46,12 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct(PaysanRepository $paysanRepository, ParticulierRepository $particulierRepository,
-                                EntrepriseRepository $entrepriseRepository, RoleRepository $roleRepositor)
-    {
+    public function __construct(
+        PaysanRepository $paysanRepository,
+        ParticulierRepository $particulierRepository,
+        EntrepriseRepository $entrepriseRepository,
+        RoleRepository $roleRepositor
+    ) {
         $this->middleware('guest');
         $this->particulierRepository = $particulierRepository;
         $this->entrepriseRepository = $entrepriseRepository;
@@ -68,7 +72,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'telephone' => 'required',
-            'adresse'=> 'required',
+            'adresse' => 'required',
             'role_id' => 'required'
         ]);
     }
@@ -86,26 +90,56 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'telephone' => $data['telephone'],
-            'adresse'=> $data['adresse'],
-            'role_id'=> $data['role_id']
+            'adresse' => $data['adresse'],
+            'role_id' => $data['role_id']
         ]);
-        if($data['role_id']==1){
+        if ($data['role_id'] == 1) {
 
-        //$user->save();
-        //$idUser =  DB::table('users')->where('email', $data->input('emailet'))->value('id');
-        //$data->merge(['password' => bcrypt($data->password)]);
-        //$data->password
-        //$user = $this->userRepository->store($data->all());
+            //$user->save();
+            //$idUser =  DB::table('users')->where('email', $data->input('emailet'))->value('id');
+            //$data->merge(['password' => bcrypt($data->password)]);
+            //$data->password
+            //$user = $this->userRepository->store($data->all());
             Paysan::create([
                 'user_id' => $user->id,
-                'matricule' => time().$user->id,
+                'matricule' => time() . $user->id,
                 'cni' => $data['cni']
             ]);
-        /*$data->merge(['user_id' => $user->id]);
+            /*$data->merge(['user_id' => $user->id]);
         $paysan = $this->paysanRepository->store($data->all());*/
-
-    }
+        } elseif ($data['role_id'] == 2) {
+            Particulier::create([
+                'user_id' => $user->id,
+                'cni' => $data['cni']
+            ]);
+        }
         return $user;
+    }
+    protected function storeAPI(array $data)
+    {
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'telephone' => $data['telephone'],
+            'adresse' => $data['adresse'],
+            'role_id' => $data['role_id']
+        ]);
+        if ($data['role_id'] == 1) {
 
+            //$user->save();
+            //$idUser =  DB::table('users')->where('email', $data->input('emailet'))->value('id');
+            //$data->merge(['password' => bcrypt($data->password)]);
+            //$data->password
+            //$user = $this->userRepository->store($data->all());
+            Paysan::create([
+                'user_id' => $user->id,
+                'matricule' => time() . $user->id,
+                'cni' => $data['cni']
+            ]);
+            /*$data->merge(['user_id' => $user->id]);
+            $paysan = $this->paysanRepository->store($data->all());*/
+        }
+        return response()->json();
     }
 }

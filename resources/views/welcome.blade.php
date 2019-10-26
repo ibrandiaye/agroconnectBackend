@@ -100,9 +100,9 @@
                 <nav class="menu-top">
                     <ul>
                         <li class="level-1"><a href="{{route('liste.annonce')}}" title="Projects">Marché Virtuel</a></li>
-                        <li class="level-1"><a href="#" title="Projects">Coopérative</a></li>
+                        <li class="level-1"><a href="{{route('cooperation.create')}}" title="">Coopérative</a></li>
                         <li class="level-1"><a href="{{route('service.index')}}" title="collection">Service</a></li>
-                        <li class="level-1"><a href="#" title="Blog">Méteo</a></li>
+                        <li class="level-1"><a href="{{route('publication.index')}}" title="Blog">Méteo</a></li>
                     </ul>
                 </nav>
             </div>

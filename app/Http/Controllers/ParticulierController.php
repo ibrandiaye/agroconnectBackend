@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PublicationRepository;
 use Illuminate\Http\Request;
 
 class ParticulierController extends Controller
@@ -12,9 +13,7 @@ class ParticulierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
+    { }
 
     /**
      * Show the form for creating a new resource.
