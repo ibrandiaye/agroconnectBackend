@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class PublicationController extends Controller
 {
     protected $publicationRepository;
-    public function __construct(PublicationRepository $publicationRepository){
-        $this->publicationRepository =$publicationRepository;
+    public function __construct(PublicationRepository $publicationRepository)
+    {
+        $this->publicationRepository = $publicationRepository;
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +21,7 @@ class PublicationController extends Controller
     public function index()
     {
         $meteos = $this->publicationRepository->getBulletionMeteo();
-        return view("meteo.meteo",compact('meteos'));
+        return view("meteo.meteo", compact('meteos'));
     }
 
     /**
@@ -41,21 +42,18 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-       if ($request->hasFile('audios')) {
+        if ($request->hasFile('audios')) {
 
 
-               $video = $request->file('audios');
+            $video = $request->file('audios');
 
-               $name=$video->getClientOriginalName();
-               $video->move(public_path().'/audio/', $name);
-               $data[] = $name;
-               $request->merge(['audio'=>$name]); ;
-
-
-
+            $name = $video->getClientOriginalName();
+            $video->move(public_path() . '/audio/', $name);
+            $data[] = $name;
+            $request->merge(['audio' => $name]);;
         }
 
-        $request->merge(['user_id'=>Auth::id()]);
+        $request->merge(['user_id' => Auth::id()]);
         $this->publicationRepository->store($request->all());
         return redirect()->back();
     }

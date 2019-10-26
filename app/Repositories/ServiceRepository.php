@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: ibra8
@@ -11,26 +12,30 @@ namespace App\Repositories;
 
 use App\Service;
 
-class ServiceRepository extends RessourceRepository{
-    public function __construct(Service $service){
+class ServiceRepository extends RessourceRepository
+{
+    public function __construct(Service $service)
+    {
         $this->model = $service;
     }
-    public function getAllServiceWithRelation(){
+    public function getAllServiceWithRelation()
+    {
         return Service::with(['user'])
-            ->orderBy('id','desc')
+            ->orderBy('id', 'desc')
             ->get();
     }
-    public function getAllServiceWithCegorie($id){
+    public function getAllServiceWithCegorie($id)
+    {
         return Service::with(['user'])
-            ->where('sousCategorie_id',$id)
-            ->orderBy('id','desc')
+            ->where('sousCategorie_id', $id)
+            ->orderBy('id', 'desc')
             ->get();
     }
-    public function getAllServiceByUser($id){
-        return Service::with(['user','interesses','interesses.user','sousCategorie','sousCategorie.categorie'])
-            ->orderBy('id','desc')
-            ->where('user_id',$id)
+    public function getAllServiceByUser($id)
+    {
+        return Service::with(['user', 'interesses', 'interesses.user', 'sousCategorie', 'sousCategorie.categorie'])
+            ->orderBy('id', 'desc')
+            ->where('user_id', $id)
             ->get();
     }
-
 }

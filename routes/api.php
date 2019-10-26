@@ -34,3 +34,4 @@ Route::get('/liste/cooperatives', 'CooperationController@getAllCooperation')
 Route::get('/liste/categories', 'CategorieController@getAllCategories')
     ->name('liste.categories')
     ->middleware('cors');
+

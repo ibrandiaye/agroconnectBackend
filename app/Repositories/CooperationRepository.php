@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: ibra8
- * Date: 15/10/2019
- * Time: 12:15
- */
+
 
 namespace App\Repositories;
 
@@ -26,9 +21,10 @@ class CooperationRepository extends RessourceRepository
             ->orderBy('id', 'desc')
             ->get();
     }
-    public function getCooperativeByUser($id){
+    public function getCooperativeByUser($id)
+    {
         return DB::table('cooperations')
-            ->where('user_id',$id)
+            ->where('user_id', $id)
             ->first();
     }
 }

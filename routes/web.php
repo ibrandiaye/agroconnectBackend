@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/utilisateur/profil', 'UserController@profil')->name('utilsateur.profil')->middleware('auth');
 
 
-Route::resource('/culture', 'CultureController')->middleware('isAdmin','isCooperative');
+Route::resource('/culture', 'CultureController')->middleware('isAdmin', 'isCooperative');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
 Route::resource('/utilisateur', 'UserController');
 Route::resource('/categories', 'CategorieController')->middleware('isAdmin');
@@ -58,7 +58,7 @@ Route::get('/une-annonce/utilisateur/{id}', 'AnnonceController@getAnnonceUserByI
 
 
 Route::resource('/publication', 'PublicationController');
-Route::get('/publication/create','PublicationController@create')->name('publication.create')->middleware('isAdmin');
+Route::get('/publication/create', 'PublicationController@create')->name('publication.create')->middleware('isAdmin');
 
 Route::get('/conseils/liste', 'ConseilController@getConselsAndUser')->name("conseil.liste");
 Route::get('/conseils/{id}', 'ConseilController@getOneConseil')->name("conseil.une");

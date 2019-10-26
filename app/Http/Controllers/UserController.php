@@ -19,8 +19,13 @@ class UserController extends Controller
     protected $roleRepository;
     protected $userRepository;
 
-    public function __construct(PaysanRepository $paysanRepository, ParticulierRepository $particulierRepository,
-                    EntrepriseRepository $entrepriseRepository, RoleRepository $roleRepositor, UserRepository $userRepository){
+    public function __construct(
+        PaysanRepository $paysanRepository,
+        ParticulierRepository $particulierRepository,
+        EntrepriseRepository $entrepriseRepository,
+        RoleRepository $roleRepositor,
+        UserRepository $userRepository
+    ) {
         $this->particulierRepository = $particulierRepository;
         $this->entrepriseRepository = $entrepriseRepository;
         $this->paysanRepository = $paysanRepository;
@@ -40,7 +45,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = $this->roleRepository->getAll();
-        return view('utilisateur.inscription',compact('roles'));
+        return view('utilisateur.inscription', compact('roles'));
     }
 
     /**
@@ -52,15 +57,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        if($request->role_id==1){
+        if ($request->role_id == 1) {
 
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
             $user->password = bcrypt(bcrypt($request['password1']));
             $user->telephone = $request['telephone'];
-            $user->adresse= $request['adresse'];
-            $user->role_id= $request['role_id'];
+            $user->adresse = $request['adresse'];
+            $user->role_id = $request['role_id'];
             $request->merge(['user_id' => $user->id]);
             $paysan = $this->paysanRepository->store($request->all());
             return back();
@@ -112,9 +117,10 @@ class UserController extends Controller
     {
         //
     }
-    public function profil(){
+    public function profil()
+    {
         $user = $this->userRepository->getById(Auth::id());
-        return view('auth.profil',compact('user'));
+        return view('auth.profil', compact('user'));
     }
 
 
@@ -134,7 +140,7 @@ class UserController extends Controller
         ]);
 
 
-        if($request->role_id==1){
+        if ($request->role_id == 1) {
 
             /*$user = new User();
             $user->name = $request->input('name');
@@ -151,7 +157,7 @@ class UserController extends Controller
                 'adresse' => $request['adresse'],
                 'role_id' => $request['role_id']
             ]);
-            $request->merge(['user_id' => $user->id,'matricule' => time().$user->id]);
+            $request->merge(['user_id' => $user->id, 'matricule' => time() . $user->id]);
             $paysan = $this->paysanRepository->store($request->all());
             return response()->json("ok");
         }

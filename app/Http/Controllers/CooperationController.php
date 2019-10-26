@@ -125,7 +125,8 @@ class CooperationController extends Controller
     }
 
     //function for API Mobile
-    public  function getAllCooperation(){
+    public  function getAllCooperation()
+    {
         $cooperations = $this->cooperativeRepository->getAllCooperative();
         return response()->json($cooperations);
     }

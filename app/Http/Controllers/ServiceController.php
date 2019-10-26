@@ -13,8 +13,11 @@ class ServiceController extends Controller
     protected $serviceRepository;
     protected $sousCategorieRepository;
     protected $categorieRepository;
-    public function __construct(ServiceRepository $serviceRepository,SousCategorieRepository $sousCategorieRepository,
-                CategorieRepository $categorieRepository){
+    public function __construct(
+        ServiceRepository $serviceRepository,
+        SousCategorieRepository $sousCategorieRepository,
+        CategorieRepository $categorieRepository
+    ) {
         $this->serviceRepository = $serviceRepository;
         $this->sousCategorieRepository = $sousCategorieRepository;
         $this->categorieRepository = $categorieRepository;
@@ -23,14 +26,14 @@ class ServiceController extends Controller
     {
         $services = $this->serviceRepository->getAllServiceWithRelation();
         $categories = $this->categorieRepository->getCategorieWithSousCategorie();
-        return view('service.liste',compact('services','categories'));
+        return view('service.liste', compact('services', 'categories'));
     }
 
     public function getServiceByCategorie($id)
     {
         $categories = $this->categorieRepository->getCategorieWithSousCategorie();
         $services = $this->serviceRepository->getAllServiceWithCegorie($id);
-        return view('service.liste',compact('services','categories'));
+        return view('service.liste', compact('services', 'categories'));
     }
 
     /**
@@ -41,7 +44,7 @@ class ServiceController extends Controller
     public function create()
     {
         $sousCategories = $this->sousCategorieRepository->getAll();
-        return view('service.add',compact('sousCategories'));
+        return view('service.add', compact('sousCategories'));
     }
 
     /**
@@ -52,7 +55,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->merge(['user_id'=>Auth::id(),'etat'=> false]);
+        $request->merge(['user_id' => Auth::id(), 'etat' => false]);
         $service = $this->serviceRepository->store($request->all());
         return  redirect()->back();
     }
@@ -102,8 +105,9 @@ class ServiceController extends Controller
         //
     }
 
-    public function getServiceByUser(){
+    public function getServiceByUser()
+    {
         $services = $this->serviceRepository->getAllServiceByUser(Auth::id());
-        return view('utilisateur.mesServices',compact('services'));
+        return view('utilisateur.mesServices', compact('services'));
     }
 }
