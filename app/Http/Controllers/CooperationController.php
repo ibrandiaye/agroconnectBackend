@@ -120,7 +120,6 @@ class CooperationController extends Controller
     public function getAllCooperativeAdmin()
     {
         $cooperative = $this->cooperativeRepository->getAllCooperative();
-        // $annonces = $this->annonceRepository->getAllAnnonce();
         return  view('cooperative.show', compact('cooperative'));
     }
 }

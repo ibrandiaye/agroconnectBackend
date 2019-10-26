@@ -28,6 +28,7 @@ Route::resource('/cooperation', 'CooperationController');
 Route::resource('/parcelle', 'ParcelleController');
 Route::resource('/grenier', 'GrenierController');
 Route::resource('/culture', 'CultureController');
+Route::resource('/adhesion', 'AdhesionController');
 
 
 Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin');
