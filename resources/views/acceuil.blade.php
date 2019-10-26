@@ -86,44 +86,7 @@
                 </div>
             </div>
             <!-- End OurNewProduct -->
-            <div class="banner-center">
-                <div class="col-md-3 first">
-                    <div class="banner-item">
-                        <div class="text">
-                            <h2>Chairs</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                        <div class="images">
-                            <img src="assets/images/Futurelife-banner-center1.png" alt="Banner-Center">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="banner-item">
-                        <div class="text">
-                            <h3>Design Creative</h3>
-                            <h2>lantern</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                            <a href="#" title="shopnow">Shop now</a>
-                        </div>
-                        <div class="images">
-                            <img src="assets/images/Futurelife-banner-center2.png" alt="Banner-Center"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 last">
-                    <div class="banner-item">
-                        <div class="text">
-                            <h3>ceramic <strong>LIGHT</strong></h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                            <a href="#" title="shopnow">Shop Now</a>
-                        </div>
-                        <div class="images">
-                            <img src="assets/images/Futurelife-banner-center3.png" alt="Banner-center">
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <!-- End Banner Center -->
             <div class="title-text">
                 <h3>Conseils</h3>
@@ -131,7 +94,9 @@
             <!-- End title text -->
             <div class="blog-post-container space-100">
                 <div class="blog-post-inner">
+                    @foreach($conseils as $conseil)
                     <div class="blog-post-item">
+
                         <p class="blog-post-image">
                             <a href="#" title="Post"><img src="assets/images/ImgBlog/1.jpg" alt=""></a>
                         </p>
@@ -145,19 +110,20 @@
                             <a href="#" title="Read more">Read More</a>
                         </p>
                     </div>
+                    @endforeach
                     <!-- End blog-item -->
                     <div class="blog-post-item">
                         <p class="blog-post-image">
-                            <a href="#" title="Post"><img src="assets/images/ImgBlog/1.jpg" alt=""></a>
+                            <a href="#" title="Post"><img src="/categorie/{{ $conseil->image }}" alt=""></a>
                         </p>
-                        <p class="post-date"><i class="fa fa-calendar"></i>16 December, 2015</p>
-                        <h3>Integer scelerisque diam vitae aliquam fringilla.</h3>
+                        <p class="post-date"><i class="fa fa-calendar"></i>{{ $conseil->created_at }}</p>
+                        <h3>{{$conseil->titre}}.</h3>
                         <p class="post-tags">
                             <a href="#" title="like" class="like"><i class="fa fa-heart-o"></i>100 like</a>
                             <a href="#" title="comments" class="comments"><i class="fa fa-comment-o"></i>25 Comments</a>
                         </p>
                         <p class="read-more">
-                            <a href="#" title="Read more">Read More</a>
+                            <a href="{{ route('conseil.une',[$conseil->id]) }}" title="Read more">Lire suite</a>
                         </p>
                     </div>
                     <!-- End blog-item -->
@@ -179,8 +145,27 @@
                 </div>
                 <!-- End Blog-Post-Inner -->
             </div>
+            <div class="title-text">
+                <h3>Meteo</h3>
+            </div>
             <!-- End blog post -->
+            @foreach($meteos as $meteo)
+                <div class="profile space-padding-tb-40 space-30">
+                    <div class="avatar">
+                        <img src="/assets/images/meteo.png" alt="Futurelife-about" />
+                    </div>
+                    <div class="text">
+                        <h3>{{Carbon\Carbon::parse( $meteo->updated_at)->format('d-M-Y h:m:s')}}</h3>
+                        {!!$meteo->libelle!!}
+                        <audio controls>
+                            <source src="/audio/{{$meteo->audio}}" type="audio/mpeg">
+                            <source src="/audio/{{$meteo->audio}}" type="audio/ogg">
+                            Votre navigateur ne supporte pas la balise audio.
+                        </audio>
 
+                    </div>
+                </div>
+            @endforeach
         </div>
         <!-- End container -->
         {{-- <div class="newsletter">

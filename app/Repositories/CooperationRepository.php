@@ -27,4 +27,7 @@ class CooperationRepository extends RessourceRepository
             ->where('user_id', $id)
             ->first();
     }
+    public function countCooperation(){
+        return DB::table('cooperations')->count();
+    }
 }

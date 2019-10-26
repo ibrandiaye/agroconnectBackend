@@ -35,5 +35,10 @@ class PublicationRepository extends RessourceRepository{
             ->orderBy('id', 'desc')
             ->get();
     }
+    public function getLastMeteo(){
+        return Publication::with(['user'])
+            ->orderBy('id', 'desc')
+            ->get();
+    }
 
 }

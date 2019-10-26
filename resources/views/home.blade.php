@@ -24,7 +24,7 @@
                 <div class="card">
                     <div class="card-heading p-4">
                         <div class="mini-stat-icon float-right">
-                            <i class="mdi mdi-cube-outline bg-primary  text-white"></i>
+                            <i class="mdi icon-profile bg-primary  text-white"></i>
                         </div>
                         <div>
                             <h5 class="font-16">Active Sessions</h5>

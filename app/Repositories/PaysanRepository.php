@@ -18,4 +18,7 @@ class PaysanRepository extends RessourceRepository
     {
         return DB::table('paysans')->where('user_id', $id)->first();
     }
+    public function countPaysan(){
+        return DB::table('paysans')->count();
+    }
 }

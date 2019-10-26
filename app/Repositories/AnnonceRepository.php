@@ -76,4 +76,7 @@ class AnnonceRepository extends RessourceRepository
             ->get();
     }
 */
+    public function countAnnonce(){
+        return DB::table('annonces')->count();
+    }
 }

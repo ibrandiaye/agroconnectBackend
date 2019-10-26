@@ -16,4 +16,8 @@ class PosterRepository extends  RessourceRepository{
         $this->model = $poster;
     }
 
+    public function countAnnonce(){
+        return DB::table('posters')->count();
+    }
+
 }

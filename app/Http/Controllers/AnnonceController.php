@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\AnnonceRepository;
 use App\Repositories\ConseilRepository;
 use App\Repositories\ProduitRepository;
+use App\Repositories\PublicationRepository;
 use App\Repositories\SousCategorieRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,16 +16,18 @@ class AnnonceController extends Controller
     protected  $produitRepository;
     protected $sousCategorieRepository;
     protected $conseilRepository;
+    protected $publicationRepository;
     public function __construct(
         AnnonceRepository $annonceRepository,
         ProduitRepository $produitRepository,
         SousCategorieRepository $sousCategorieRepository,
-        ConseilRepository $conseilRepository
+        ConseilRepository $conseilRepository, PublicationRepository $publicationRepository
     ) {
         $this->annonceRepository = $annonceRepository;
         $this->produitRepository = $produitRepository;
         $this->sousCategorieRepository = $sousCategorieRepository;
         $this->conseilRepository = $conseilRepository;
+        $this->publicationRepository = $publicationRepository;
     }
     public function index()
     { }
@@ -101,7 +104,8 @@ class AnnonceController extends Controller
     {
         $annonces = $this->annonceRepository->getLastsAnnonce(6);
         $conseils = $this->conseilRepository->getFiveLastConseil();
-        return view('acceuil', compact('annonces', 'conseils'));
+        $meteos = $this->publicationRepository->getLastBulletionMeteo();
+        return view('acceuil', compact('annonces', 'conseils','meteos'));
     }
     public function getOneAnnonce($id)
     {

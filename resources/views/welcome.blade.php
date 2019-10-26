@@ -96,13 +96,14 @@
         <div class="container">
             <div class="col-md-10 col-sm-9 col-xs-12">
                 <p class="icon-menu-mobile"><i class="fa fa-bars" ></i></p>
-                <div class="logo"><a href="#" title="Futurelife">Agroconnect</a></div>
+                <div class="logo"><a href="{{ route ('acceuil') }}" title="Agroconnect"><img src="/asset/images/logo1.png"></a></div>
                 <nav class="menu-top">
                     <ul>
                         <li class="level-1"><a href="{{route('liste.annonce')}}" title="Projects">Marché Virtuel</a></li>
                         <li class="level-1"><a href="{{route('cooperation.create')}}" title="">Coopérative</a></li>
                         <li class="level-1"><a href="{{route('service.index')}}" title="collection">Service</a></li>
                         <li class="level-1"><a href="{{route('publication.index')}}" title="Blog">Météo</a></li>
+                        <li class="level-1"><a href="{{route('conseil.liste')}}" title="Blog">Conseil</a></li>
                     </ul>
                 </nav>
             </div>
