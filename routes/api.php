@@ -48,3 +48,6 @@ Route::get('/liste/meteo', 'PublicationController@getPublucations')
     ->name('liste.meteo')
     ->middleware('cors');
 
+Route::get('/liste/conseil', 'ConseilController@getConseilApi')
+    ->name('liste.conseil')
+    ->middleware('cors');
