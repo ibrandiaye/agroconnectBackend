@@ -120,6 +120,6 @@ class ConseilController extends Controller
     }
     public function getOneConseil($id){
         $conseil = $this->conseilRepository->getConseilOneUser($id);
-        return view('conseil.list',compact('conseil'));
+        return view('conseil.show',compact('conseil'));
     }
 }

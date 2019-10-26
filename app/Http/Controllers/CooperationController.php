@@ -123,4 +123,10 @@ class CooperationController extends Controller
         // $annonces = $this->annonceRepository->getAllAnnonce();
         return  view('cooperative.show', compact('cooperative'));
     }
+
+    //function for API Mobile
+    public  function getAllCooperation(){
+        $cooperations = $this->cooperativeRepository->getAllCooperative();
+        return response()->json($cooperations);
+    }
 }

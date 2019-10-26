@@ -8,12 +8,12 @@
                 <div class="row margin-0">
                     <div class="blog-post-item">
                         <div class="blog-post-image effect-v6">
-                            <a href="#" title="Post"><img src="/categorie/{{ $conseil->image }}" alt=""></a>
-                            <a class="action light-style"  href="#"><i class="icons icons-bodered radius-x fa fa fa-link"></i>
+                            <a href="{{ route('conseil.une',[$conseil->id]) }}" title="Post"><img src="/categorie/{{ $conseil->image }}" alt=""></a>
+                            <a class="action light-style"  href="{{ route('conseil.une',[$conseil->id]) }}"><i class="icons icons-bodered radius-x fa fa fa-link"></i>
                             </a>
                         </div>
                         <p class="post-by"><span>Posté Par</span><span> {{ $conseil->user->name }}</span></p>
-                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla." >{{$conseil->titre}}</a></h3>
+                        <h3><a href="{{ route('conseil.une',[$conseil->id]) }}" title="{{$conseil->titre}}" >{{$conseil->titre}}</a></h3>
                         <p class="post-date"><i class="fa fa-calendar"></i>{{ $conseil->created_at }}</p>
                         {!!$conseil->desctiption!!}
                     </div>

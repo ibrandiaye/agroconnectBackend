@@ -60,5 +60,6 @@ Route::get('/une-annonce/utilisateur/{id}', 'AnnonceController@getAnnonceUserByI
 Route::resource('/publication', 'PublicationController');
 Route::get('/publication/create','PublicationController@create')->name('publication.create')->middleware('isAdmin');
 
+Route::get('/conseils/liste', 'ConseilController@getConselsAndUser')->name("conseil.liste");
+Route::get('/conseils/{id}', 'ConseilController@getOneConseil')->name("conseil.une");
 Route::resource('/conseil', 'ConseilController')->middleware('auth');
-Route::get('/conseil/liste', 'ConseilController@getConselsAndUser')->name("conseil.liste");

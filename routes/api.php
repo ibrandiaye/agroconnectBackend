@@ -26,3 +26,7 @@ Route::post('/enregistrer/utilisateur', 'UserController@storeAPI')
 Route::get('/une/annonce/{id}', 'AnnonceController@getAnnonceById')
     ->name('une.annonce')
     ->middleware('cors');
+
+Route::get('/liste/cooperatives', 'CooperationController@getAllCooperation')
+    ->name('liste.cooperations')
+    ->middleware('cors');
