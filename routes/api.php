@@ -30,3 +30,7 @@ Route::get('/une/annonce/{id}', 'AnnonceController@getAnnonceById')
 Route::get('/liste/cooperatives', 'CooperationController@getAllCooperation')
     ->name('liste.cooperations')
     ->middleware('cors');
+
+Route::get('/liste/categories', 'CategorieController@getAllCategories')
+    ->name('liste.categories')
+    ->middleware('cors');
