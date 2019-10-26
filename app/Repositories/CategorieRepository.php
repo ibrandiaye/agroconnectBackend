@@ -19,4 +19,5 @@ class CategorieRepository extends RessourceRepository{
         return Categorie::with(['sousCategories'])
             ->get();
     }
+
 }

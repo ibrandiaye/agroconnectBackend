@@ -105,4 +105,10 @@ class SousCategorieController extends Controller
     {
         //
     }
+
+    public function getAllSousCategories()
+    {
+        $souscategories = $this->sousCategorieRepository->getAllProduitsWithRelation();
+        return response()->json($souscategories);
+    }
 }

@@ -122,4 +122,12 @@ class ConseilController extends Controller
         $conseil = $this->conseilRepository->getConseilOneUser($id);
         return view('conseil.show',compact('conseil'));
     }
+
+    // Api liste des conseilles
+    public function getConseilApi(){
+        $conseil = $this->conseilRepository->getConseilsWithUser();
+        return response()->json($conseil);
+    }
+
+
 }
