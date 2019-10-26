@@ -35,3 +35,7 @@ Route::get('/liste/categories', 'CategorieController@getAllCategories')
     ->name('liste.categories')
     ->middleware('cors');
 
+Route::get('/liste/sous-categories', 'SousCategorieController@getAllSousCategories')
+    ->name('liste.sous-categories')
+    ->middleware('cors');
+
