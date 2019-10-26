@@ -102,4 +102,10 @@ class PublicationController extends Controller
     {
         //
     }
+    public function getPublucations()
+    {
+        $meteo = $this->publicationRepository->getPublicationAndUser();
+        return response()->json($meteo);
+    }
+
 }

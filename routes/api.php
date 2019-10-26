@@ -44,3 +44,7 @@ Route::get('/liste/services', 'ServiceController@getAllServices')
     ->name('liste.services')
     ->middleware('cors');
 
+Route::get('/liste/meteo', 'PublicationController@getPublucations')
+    ->name('liste.meteo')
+    ->middleware('cors');
+

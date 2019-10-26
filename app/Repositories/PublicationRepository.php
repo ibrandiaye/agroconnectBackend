@@ -29,4 +29,11 @@ class PublicationRepository extends RessourceRepository{
             ->get();
     }
 
+    public function getPublicationAndUser()
+    {
+        return Publication::with(['user'])
+            ->orderBy('id', 'desc')
+            ->get();
+    }
+
 }

@@ -112,7 +112,7 @@ class ServiceController extends Controller
     }
     public function getAllServices()
     {
-        $services = $this->serviceRepository->getAllServiceByUser(Auth::id());
-        return view('utilisateur.mesServices', compact('services'));
+        $services = $this->serviceRepository->getAllServiceWithRelation();
+        return response()->json($services);
     }
 }
