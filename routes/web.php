@@ -18,16 +18,16 @@ Auth::routes();
 Route::get('/utilisateur/profil', 'UserController@profil')->name('utilsateur.profil')->middleware('auth');
 
 
-Route::resource('/culture', 'CultureController')->middleware('isAdmin', 'isCooperative');
-Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
+Route::resource('/culture', 'CultureController')->middleware('auth', 'isAdmin', 'isCooperative');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'isAdmin');
 Route::resource('/utilisateur', 'UserController');
-Route::resource('/categories', 'CategorieController')->middleware('isAdmin');
-Route::resource('/sous-categorie', 'SousCategorieController')->middleware('isAdmin');
-Route::resource('/produit', 'ProduitController')->middleware('isAdmin');
+Route::resource('/categories', 'CategorieController')->middleware('auth', 'isAdmin');
+Route::resource('/sous-categorie', 'SousCategorieController')->middleware('auth', 'isAdmin');
+Route::resource('/produit', 'ProduitController')->middleware('auth', 'isAdmin');
 Route::resource('/poster', 'PosterController');
 Route::resource('/adhesion', 'AdhesionController')->middleware('isPaysan');
 Route::post('/poster', 'PosterController@store')->name('poster.store')->middleware('auth');
-Route::resource('/cooperation', 'CooperationController')->middleware('isAdmin');
+Route::resource('/cooperation', 'CooperationController')->middleware('auth', 'isAdmin');
 
 Route::resource('/parcelle', 'ParcelleController');
 
@@ -35,8 +35,8 @@ Route::resource('/grenier', 'GrenierController');
 
 
 
-Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin')->middleware('isAdmin');
-Route::get('/tous-les-cultures/', 'CultureController@getAllCultureAdmin')->name('culture.all.admin')->middleware('isAdmin');
+Route::get('/tous-les-cooperatives/', 'CooperationController@getAllCooperativeAdmin')->name('cooperation.all.admin')->middleware('auth', 'isAdmin');
+Route::get('/tous-les-cultures/', 'CultureController@getAllCultureAdmin')->name('culture.all.admin')->middleware('auth', 'isAdmin');
 
 Route::resource('/service', 'ServiceController');
 Route::get('/service/create', 'ServiceController@create')->name('service.create')->middleware('auth');
@@ -59,7 +59,7 @@ Route::get('/une-annonce/utilisateur/{id}', 'AnnonceController@getAnnonceUserByI
 
 
 Route::resource('/publication', 'PublicationController');
-Route::get('/publication/create', 'PublicationController@create')->name('publication.create')->middleware('isAdmin');
+Route::get('/publication/create', 'PublicationController@create')->name('publication.create')->middleware('auth', 'isAdmin');
 
 Route::get('/conseils/liste', 'ConseilController@getConselsAndUser')->name("conseil.liste");
 Route::get('/conseils/{id}', 'ConseilController@getOneConseil')->name("conseil.une");
