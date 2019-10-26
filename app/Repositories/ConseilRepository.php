@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: ibra8
@@ -11,19 +12,30 @@ namespace App\Repositories;
 
 use App\Conseil;
 
-class ConseilRepository extends RessourceRepository {
-    public function __construct(Conseil $conseil){
+class ConseilRepository extends RessourceRepository
+{
+    public function __construct(Conseil $conseil)
+    {
         $this->model = $conseil;
     }
 
-    public function getConseilsWithUser(){
+    public function getConseilsWithUser()
+    {
         return Conseil::with(['user'])
-                ->orderBy('id','desc')
+            ->orderBy('id', 'desc')
             ->get();
     }
-    public function getConseilOneUser($id){
+    public function getConseilOneUser($id)
+    {
         return Conseil::with(['user'])
-            ->where('id',$id)
+            ->where('id', $id)
             ->first();
+    }
+    public function getFiveLastConseil()
+    {
+        return Conseil::with(['user'])
+            ->orderBy('id', 'desc')
+            ->limit(5)
+            ->get();
     }
 }

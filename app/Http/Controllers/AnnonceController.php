@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\AnnonceRepository;
+use App\Repositories\ConseilRepository;
 use App\Repositories\ProduitRepository;
 use App\Repositories\SousCategorieRepository;
 use Illuminate\Http\Request;
@@ -13,14 +14,17 @@ class AnnonceController extends Controller
     protected $annonceRepository;
     protected  $produitRepository;
     protected $sousCategorieRepository;
+    protected $conseilRepository;
     public function __construct(
         AnnonceRepository $annonceRepository,
         ProduitRepository $produitRepository,
-        SousCategorieRepository $sousCategorieRepository
+        SousCategorieRepository $sousCategorieRepository,
+        ConseilRepository $conseilRepository
     ) {
         $this->annonceRepository = $annonceRepository;
         $this->produitRepository = $produitRepository;
         $this->sousCategorieRepository = $sousCategorieRepository;
+        $this->conseilRepository = $conseilRepository;
     }
     public function index()
     { }
@@ -96,7 +100,8 @@ class AnnonceController extends Controller
     public function getLastAnnonces()
     {
         $annonces = $this->annonceRepository->getLastsAnnonce(6);
-        return view('acceuil', compact('annonces'));
+        $conseils = $this->conseilRepository->getFiveLastConseil();
+        return view('acceuil', compact('annonces', 'conseils'));
     }
     public function getOneAnnonce($id)
     {

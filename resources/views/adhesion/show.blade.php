@@ -48,11 +48,16 @@
                                     <td>{{ $cooperative->user->telephone }}</td>
                                     <td>{{ $cooperative->user->adresse }}</td>
                                     <td>
+                                        @foreach ($adhesions as $adhesion)
+                                        @if($adhesion->cooperative_id!=$cooperative->user)
                                         <form  action="{{ route('adhesion.store') }}" method="POST" >
-                                            {{ csrf_field() }}
-                                                <input type="hidden" name="cooperation_id" value="{{ $cooperative->id }}">
-                                                <button type="submit" class="btn btn-outline-success waves-effect waves-light">Adherer</button>
-                                            </form>
+                                                {{ csrf_field() }}
+                                                    <input type="hidden" name="cooperation_id" value="{{ $cooperative->id }}">
+                                                    <button type="submit" class="btn btn-outline-success waves-effect waves-light">Adherer</button>
+                                                </form>
+                                        @endif
+                                        @endforeach
+
                                     </td>
                                 </tr>
                             @endforeach

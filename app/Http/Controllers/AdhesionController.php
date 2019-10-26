@@ -30,7 +30,8 @@ class AdhesionController extends Controller
     public function index()
     {
         $cooperative = $this->cooperationRepository->getAllCooperative();
-        return  view('adhesion.show', compact('cooperative'));
+        $adhesions = $this->adhesionRepository->getAdhesionByUser(Auth::id());
+        return  view('adhesion.show', compact('cooperative', 'adhesions'));
     }
 
     /**

@@ -25,6 +25,7 @@ Route::resource('/categories', 'CategorieController')->middleware('isAdmin');
 Route::resource('/sous-categorie', 'SousCategorieController')->middleware('isAdmin');
 Route::resource('/produit', 'ProduitController')->middleware('isAdmin');
 Route::resource('/poster', 'PosterController');
+Route::resource('/adhesion', 'AdhesionController')->middleware('isPaysan');
 Route::post('/poster', 'PosterController@store')->name('poster.store')->middleware('auth');
 Route::resource('/cooperation', 'CooperationController')->middleware('isAdmin');
 

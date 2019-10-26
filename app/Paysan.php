@@ -13,4 +13,8 @@ class Paysan extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function adhesions()
+    {
+        return $this->hasMany(Adhesion::class);
+    }
 }
