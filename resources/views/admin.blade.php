@@ -161,35 +161,78 @@
                         </a>
                     </li>
 
+
+                    {{-- Seul role Admin --}}
+                    @auth
+                    @if(Auth::user()->role_id==5)
                     <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Produit <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-badge-horizontal"></i> <span> Coopérative <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                            <ul class="submenu">
+                                <li><a href="{{ route('cooperation.create') }}">Ajouter</a></li>
+                                <li><a href="{{route('cooperation.all.admin')}}">Afficher</a></li>
+                                <li>
+                                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Parcelles <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ route('parcelle.create') }}">Ajouter</a></li>
+                                        <li><a href="{{route('parcelle.index')}}">Afficher</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-spread"></i> <span> Cultures <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ route('culture.create') }}">Ajouter</a></li>
+                                        <li><a href="{{route('culture.all.admin')}}">Afficher</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Greniers <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ route('grenier.create') }}">Ajouter</a></li>
+                                        <li><a href="{{route('grenier.index')}}">Afficher</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-bullhorn"></i> <span> Annonce <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('annonce.invalide') }}">à Valider</a></li>
+                            <li><a href="{{route('annonce.all.admin')}}">Toutes les annonces</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-folder-text"></i><span> Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('categories.create') }}">Ajouter</a></li>
+                            <li><a href="{{ route('categories.index') }}">Liste </a></li>
+                        </ul>
+                    </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-folder-text"></i><span>Sous Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a href="{{ route('sous-categorie.create') }}">Ajouter</a></li>
+                                <li><a href="{{route('sous-categorie.index')}}">Liste </a></li>
+                            </ul>
+                        </li>
+
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-dolly-flatbed"></i><span> Produit <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                         <ul class="submenu">
                             <li><a href="{{ route('produit.create') }}">Ajouter Produit</a></li>
                             <li><a href="{{route('produit.index')}}">Liste</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-cloud-showers-heavy"></i><span> Bulletin Meteo <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                         <ul class="submenu">
-                            <li><a href="{{ route('categories.create') }}">Ajouter</a></li>
-                            <li><a href="{{ route('categories.index') }}">Liste </a></li>
+                            <li><a href="{{ route('publication.create') }}">Ajouter Produit</a></li>
+                            <li><a href="{{route('publication.index')}}">Liste</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span>Sous Catégorie <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        <ul class="submenu">
-                            <li><a href="{{ route('sous-categorie.create') }}">Ajouter</a></li>
-                            <li><a href="{{route('sous-categorie.index')}}">Liste </a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Annonce <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
-                        <ul class="submenu">
-                            <li><a href="{{ route('annonce.invalide') }}">à Valider</a></li>
-                            <li><a href="{{route('annonce.all.admin')}}">Toutes les annonces</a></li>
-                        </ul>
-                    </li>
-                    @auth
+                    @endif
+                    @endauth
+                    {{-- Seul role Admin --}}
+                    {{-- @auth
                     @if(Auth::user()->role_id==1)
 
                     <li>
@@ -199,15 +242,10 @@
                         </ul>
                     </li>
                     @endif
-                    @endauth
-                    <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Bulletin Meteo <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        <ul class="submenu">
-                            <li><a href="{{ route('publication.create') }}">Ajouter Produit</a></li>
-                            <li><a href="{{route('publication.index')}}">Liste</a></li>
-                        </ul>
-                    </li>
+                    @endauth --}}
+
                     @auth
+                    {{-- Role cooperative --}}
                     @if(Auth::user()->role_id==4)
                     <li>
                         <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Coopérative <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
@@ -237,8 +275,9 @@
                             </li>
                         </ul>
                     </li>
-                        @endif
+                    @endif
                     @endauth
+                    {{-- Role cooperative --}}
                 </ul>
 
             </div>

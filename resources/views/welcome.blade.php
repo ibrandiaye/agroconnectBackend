@@ -100,7 +100,12 @@
                 <nav class="menu-top">
                     <ul>
                         <li class="level-1"><a href="{{route('liste.annonce')}}" title="Projects">Marché Virtuel</a></li>
-                        <li class="level-1"><a href="{{route('cooperation.create')}}" title="">Coopérative</a></li>
+                        {{-- <li class="level-1"><a href="{{route('cooperation.create')}}" title="">Coopérative</a></li> --}}
+                        @auth
+                        @if(Auth::user()->role_id==1)
+                        <li class="level-1"><a href="{{route('adhesion.index')}}" title="">Coopérative</a></li>
+                        @endif
+                        @endauth
                         <li class="level-1"><a href="{{route('service.index')}}" title="collection">Service</a></li>
                         <li class="level-1"><a href="{{route('publication.index')}}" title="Blog">Météo</a></li>
                     </ul>
