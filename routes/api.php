@@ -23,6 +23,7 @@ Route::get('/liste/annonces', 'AnnonceController@getAllannonceApi')
 Route::post('/enregistrer/utilisateur', 'UserController@storeAPI')
     ->name('enregistrer.utilisateur')
     ->middleware('cors');
+
 Route::get('/une/annonce/{id}', 'AnnonceController@getAnnonceById')
     ->name('une.annonce')
     ->middleware('cors');
@@ -37,5 +38,9 @@ Route::get('/liste/categories', 'CategorieController@getAllCategories')
 
 Route::get('/liste/sous-categories', 'SousCategorieController@getAllSousCategories')
     ->name('liste.sous-categories')
+    ->middleware('cors');
+
+Route::get('/liste/services', 'ServiceController@getAllServices')
+    ->name('liste.services')
     ->middleware('cors');
 

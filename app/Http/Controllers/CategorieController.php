@@ -104,7 +104,8 @@ class CategorieController extends Controller
     // Affichage des Categories pour le mobile
     public function getAllCategories()
     {
-        $categories = $this->categorieRepository->getAll();
+        $categories = $this->categorieRepository->getCategorieWithSousCategorie();
         return response()->json($categories);
     }
+
 }
