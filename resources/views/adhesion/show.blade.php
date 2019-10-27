@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('welcome')
 @section('css')
     <link href="/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <div class="page-title-box">
             <div class="row align-items-center">
-                <div class="col-sm-6">
+                {{-- <div class="col-sm-6">
                     <h4 class="page-title">Adhésion</h4>
                 </div>
                 <div class="col-sm-6">
@@ -18,7 +18,7 @@
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Acceuil</a></li>
                         <li class="breadcrumb-item active">Adhésion</li>
                     </ol>
-                </div>
+                </div> --}}
             </div>
             <!-- end row -->
         </div>
