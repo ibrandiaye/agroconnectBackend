@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Poster;
+use Illuminate\Support\Facades\DB;
 
 class PosterRepository extends  RessourceRepository{
     public function __construct(Poster $poster){

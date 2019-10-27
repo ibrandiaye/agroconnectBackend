@@ -27,13 +27,12 @@
                             <i class="mdi icon-profile bg-primary  text-white"></i>
                         </div>
                         <div>
-                            <h5 class="font-16">Active Sessions</h5>
+                            <h5 class="font-16">Nombre de paysans</h5>
                         </div>
-                        <h3 class="mt-4">43,225</h3>
+                        <h3 class="mt-4">{{$nbPaysan}}</h3>
                         <div class="progress mt-4" style="height: 4px;">
                             <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <p class="text-muted mt-2 mb-0">Previous period<span class="float-right">75%</span></p>
                     </div>
                 </div>
             </div>
@@ -45,13 +44,12 @@
                             <i class="mdi mdi-briefcase-check bg-success text-white"></i>
                         </div>
                         <div>
-                            <h5 class="font-16">Total Revenue</h5>
+                            <h5 class="font-16">Nombre d'annonces</h5>
                         </div>
-                        <h3 class="mt-4">$73,265</h3>
+                        <h3 class="mt-4">{{$nbAnnonce}}</h3>
                         <div class="progress mt-4" style="height: 4px;">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <p class="text-muted mt-2 mb-0">Previous period<span class="float-right">88%</span></p>
                     </div>
                 </div>
             </div>
@@ -63,13 +61,12 @@
                             <i class="mdi mdi-tag-text-outline bg-warning text-white"></i>
                         </div>
                         <div>
-                            <h5 class="font-16">Average Price</h5>
+                            <h5 class="font-16">Nombre de postulatts</h5>
                         </div>
-                        <h3 class="mt-4">447</h3>
+                        <h3 class="mt-4">{{$nbPoster  }}</h3>
                         <div class="progress mt-4" style="height: 4px;">
                             <div class="progress-bar bg-warning" role="progressbar" style="width: 68%" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <p class="text-muted mt-2 mb-0">Previous period<span class="float-right">68%</span></p>
                     </div>
                 </div>
             </div>
@@ -81,13 +78,12 @@
                             <i class="mdi mdi-buffer bg-danger text-white"></i>
                         </div>
                         <div>
-                            <h5 class="font-16">Add to Card</h5>
+                            <h5 class="font-16">Nombre Cooperatives</h5>
                         </div>
-                        <h3 class="mt-4">86%</h3>
+                        <h3 class="mt-4">{{ $nbCooperative }}</h3>
                         <div class="progress mt-4" style="height: 4px;">
                             <div class="progress-bar bg-danger" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <p class="text-muted mt-2 mb-0">Previous period<span class="float-right">82%</span></p>
                     </div>
                 </div>
             </div>

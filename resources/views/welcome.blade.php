@@ -4,9 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    @yield('css')
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/vendor/owl-slider.css"/>
     <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    @yield('jsheader')
     <title>Agroconnect</title>
 </head>
 <body>
@@ -99,24 +101,20 @@
                 <div class="logo"><a href="{{ route ('acceuil') }}" title="Agroconnect"><img src="/asset/images/logo1.png"></a></div>
                 <nav class="menu-top">
                     <ul>
-<<<<<<< HEAD
+
                         <li class="level-1"><a href="{{route('acceuil')}}" title="Marché Virtuel">Acceuil</a></li>
                         <li class="level-1"><a href="{{route('liste.annonce')}}" title="Marché Virtuel">Marché Virtuel</a></li>
-                        <li class="level-1"><a href="{{route('cooperation.create')}}" title="Coopérative">Coopérative</a></li>
-                        <li class="level-1"><a href="{{route('service.index')}}" title="Service">Service</a></li>
-                        <li class="level-1"><a href="{{route('publication.index')}}" title="Météo">Météo</a></li>
-                        <li class="level-1"><a href="{{route('conseil.liste')}}" title="Conseil">Conseil</a></li>
-=======
-                        <li class="level-1"><a href="{{route('liste.annonce')}}" title="Projects">Marché Virtuel</a></li>
-                        {{-- <li class="level-1"><a href="{{route('cooperation.create')}}" title="">Coopérative</a></li> --}}
                         @auth
                         @if(Auth::user()->role_id==1)
-                        <li class="level-1"><a href="{{route('adhesion.index')}}" title="">Coopérative</a></li>
+                            <li class="level-1"><a href="{{route('adhesion.index')}}" title="">Coopératives</a></li>
                         @endif
                         @endauth
-                        <li class="level-1"><a href="{{route('service.index')}}" title="collection">Service</a></li>
-                        <li class="level-1"><a href="{{route('publication.index')}}" title="Blog">Météo</a></li>
->>>>>>> de181cf661e99c96025bd809303011d7a8794a8d
+                        <li class="level-1"><a href="{{route('service.index')}}" title="Service">Services</a></li>
+                        <li class="level-1"><a href="{{route('publication.index')}}" title="Météo">Météo</a></li>
+                        <li class="level-1"><a href="{{route('conseil.liste')}}" title="liste">Conseils</a></li>
+                        {{-- <li class="level-1"><a href="{{route('cooperation.create')}}" title="">Coopérative</a></li> --}}
+
+
                     </ul>
                 </nav>
             </div>

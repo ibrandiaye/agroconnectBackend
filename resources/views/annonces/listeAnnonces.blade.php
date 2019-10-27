@@ -30,8 +30,8 @@
                 <div class="item-inner">
                     <div class="product">
                         <a class="product-images" href="#" title="">
-                            <img class="primary_image" src="/categorie/{{$annonce->produit->image}}" alt=""/>
-                            <img class="secondary_image" src="/categorie/{{$annonce->produit->image}}" alt=""/>
+                            <img class="primary_image" src="/thumbnail/{{$annonce->produit->image}}" alt=""/>
+                            <img class="secondary_image" src="/thumbnail/{{$annonce->produit->image}}" alt=""/>
                         </a>
                         <p class="product-title">{{ $annonce->produit->libelle }}</p>
                         <p class="description">{{ $annonce->description }}</p>

@@ -11,6 +11,7 @@ namespace App\Repositories;
 
 
 use App\Annonce;
+use Illuminate\Support\Facades\DB;
 
 class AnnonceRepository extends RessourceRepository
 {

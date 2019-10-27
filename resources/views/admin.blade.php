@@ -229,6 +229,13 @@
                             <li><a href="{{route('publication.index')}}">Liste</a></li>
                         </ul>
                     </li>
+                        <li>
+                            <a href="{{ route('conseil.create') }}" class="waves-effect">
+                                <i class="icon-accelerator"></i>
+                                {{-- <span class="badge badge-success badge-pill float-right">9+</span>  --}}
+                                <span> Conseil </span>
+                            </a>
+                        </li>
                     @endif
                     @endauth
                     {{-- Seul role Admin --}}

@@ -64,6 +64,7 @@
                                         <option value="">Veuillez choisir...</option>
                                         <option value="Kg">Kg</option>
                                         <option value="Sac">Sac</option>
+                                        <option value="Piece">Piece</option>
                                     </select>
                                 </div>
 

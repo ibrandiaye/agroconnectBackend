@@ -44,8 +44,7 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg',
-            ''
+            'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
         ]);
         $originalImage= $request->file('filename');
         $thumbnailImage = Image::make($originalImage);

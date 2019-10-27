@@ -13,7 +13,7 @@
                     <div class="text-center m-t-0 m-b-15">
                             <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt="" height="24"></a>
                     </div>
-                    <h5 class="font-18 text-center">Agroconnect</h5>
+                    <h5 class="font-18 text-center"><img src="/asset/images/logo1.png"></h5>
                     <form class="form-horizontal m-t-30" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 
@@ -63,7 +63,7 @@
 
                             <div class="form-group text-center m-t-20">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary btn btn-primary btn-block btn-lg waves-effect waves-light">
+                                    <button type="submit" class="btn btn-success btn btn-success btn-block btn-lg waves-effect waves-light">
                                         Connexion
                                     </button>
                                 </div>

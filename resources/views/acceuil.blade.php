@@ -1,35 +1,32 @@
 @extends('welcome')
 
 @section('content')
-    <div class="slidershow-container">
-        <div class="container">
-            <div class="slidershow-content">
-                <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-                    <!-- Carousel indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="active item">
-                            <a href="#" title="banner1"><img class="lazy-image" data-original="" alt="banner1" src="assets/images/1.jpg" /></a>
-                        </div>
-                        <div class="item">
-                            <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/2.jpg" /></a>
-                        </div>
-                        <div class="item">
-                            <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/3.jpg" /></a>
-                        </div>
-                    </div>
-                    <a class="carousel-control right" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <a class="carousel-control left" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </div>
-            </div>
+<div class="slidershow-container">
+    <div class="container">
+        <div class="slidershow-content">
+            <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                     <!-- Carousel indicators -->
+                     <ol class="carousel-indicators">
+                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                         <li data-target="#myCarousel" data-slide-to="1"></li>
+
+                     </ol>
+                     <div class="carousel-inner">
+                         <div class="active item">
+                             <a href="#" title="banner1"><img class="lazy-image" data-original="" alt="banner1" src="assets/images/1.jpg" /></a>
+                         </div>
+                         <div class="item">
+                             <a href="#" title="banner2"><img class="lazy-image" data-original="" alt="banner2" src="assets/images/3.jpg" /></a>
+                         </div>
+                     </div>
+                     <a class="carousel-control right" href="#myCarousel" data-slide="prev">
+                         <span class="glyphicon glyphicon-chevron-right"></span>
+                     </a>
+                     <a class="carousel-control left" href="#myCarousel" data-slide="next">
+                         <span class="glyphicon glyphicon-chevron-left"></span>
+                     </a>
+                 </div>
+             </div>
             <!-- End slidershow-content -->
         </div>
     </div>
@@ -47,9 +44,10 @@
                             @foreach($annonces as $annonce)
                             <div class="item-inner">
                                 <div class="product">
+                                    <span class="new lable">Nouveau</span>
                                     <a class="product-images" href="#" title="">
-                                        <img class="primary_image" src="/categorie/{{$annonce->produit->image}}" alt=""/>
-                                        <img class="secondary_image" src="/categorie/{{$annonce->produit->image}}" alt=""/>
+                                        <img class="primary_image" src="/thumbnail/{{$annonce->produit->image}}" alt=""/>
+                                        <img class="secondary_image" src="/thumbnail/{{$annonce->produit->image}}" alt=""/>
                                     </a>
                                     <p class="product-title">{{$annonce->produit->libelle}}</p>
                                     <p class="product-price">{{ $annonce->prix_unitaire }} CFA</p>
@@ -60,25 +58,7 @@
                                     </div>
                                 </div>
                             </div>
-                                <div class="modal fade" id="myModal{{ $annonce->id }}" role="dialog">
-                                    <div class="modal-dialog">
 
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Modal Header</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Some text in the modal.</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
                            @endforeach
                         </div>
                         <!-- End product-tab-content products -->
@@ -95,52 +75,25 @@
             <div class="blog-post-container space-100">
                 <div class="blog-post-inner">
                     @foreach($conseils as $conseil)
-                    <div class="blog-post-item">
-
-                        <p class="blog-post-image">
-                            <a href="#" title="Post"><img src="assets/images/ImgBlog/1.jpg" alt=""></a>
-                        </p>
-                        <p class="post-date"><i class="fa fa-calendar"></i>16 December, 2015</p>
-                        <h3>Integer scelerisque diam vitae aliquam fringilla.</h3>
-                        <p class="post-tags">
-                            <a href="#" title="like" class="like"><i class="fa fa-heart-o"></i>100 like</a>
-                            <a href="#" title="comments" class="comments"><i class="fa fa-comment-o"></i>25 Comments</a>
-                        </p>
-                        <p class="read-more">
-                            <a href="#" title="Read more">Read More</a>
-                        </p>
-                    </div>
+                        <div class="blog-post-item">
+                            <p class="blog-post-image">
+                                <a href="#" title="Post"><img src="/categorie/{{ $conseil->image }}" alt=""></a>
+                            </p>
+                            <p class="post-date"><i class="fa fa-calendar"></i>{{ $conseil->created_at }}</p>
+                            <h3>{{$conseil->titre}}.</h3>
+                            <p class="post-tags">
+                                <a href="#" title="like" class="like"><i class="fa fa-heart-o"></i>100 like</a>
+                                <a href="#" title="comments" class="comments"><i class="fa fa-comment-o"></i>25 Comments</a>
+                            </p>
+                            <p class="read-more">
+                                <a href="{{ route('conseil.une',[$conseil->id]) }}" title="Read more">Lire suite</a>
+                            </p>
+                        </div>
                     @endforeach
                     <!-- End blog-item -->
-                    <div class="blog-post-item">
-                        <p class="blog-post-image">
-                            <a href="#" title="Post"><img src="/categorie/{{ $conseil->image }}" alt=""></a>
-                        </p>
-                        <p class="post-date"><i class="fa fa-calendar"></i>{{ $conseil->created_at }}</p>
-                        <h3>{{$conseil->titre}}.</h3>
-                        <p class="post-tags">
-                            <a href="#" title="like" class="like"><i class="fa fa-heart-o"></i>100 like</a>
-                            <a href="#" title="comments" class="comments"><i class="fa fa-comment-o"></i>25 Comments</a>
-                        </p>
-                        <p class="read-more">
-                            <a href="{{ route('conseil.une',[$conseil->id]) }}" title="Read more">Lire suite</a>
-                        </p>
-                    </div>
+
                     <!-- End blog-item -->
-                    <div class="blog-post-item">
-                        <p class="blog-post-image">
-                            <a href="#" title="Post"><img src="assets/images/ImgBlog/1.jpg" alt=""></a>
-                        </p>
-                        <p class="post-date"><i class="fa fa-calendar"></i>16 December, 2015</p>
-                        <h3>Integer scelerisque diam vitae aliquam fringilla.</h3>
-                        <p class="post-tags">
-                            <a href="#" title="like" class="like"><i class="fa fa-heart-o"></i>100 like</a>
-                            <a href="#" title="comments" class="comments"><i class="fa fa-comment-o"></i>25 Comments</a>
-                        </p>
-                        <p class="read-more">
-                            <a href="#" title="Read more">Read More</a>
-                        </p>
-                    </div>
+
                     <!-- End blog-item -->
                 </div>
                 <!-- End Blog-Post-Inner -->
@@ -229,4 +182,34 @@
         <!-- End banner-bottom -->
     </div>
     <!-- End MainContent -->
+@endsection
+@section('script')
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " w3-white";
+        }
+    </script>
 @endsection

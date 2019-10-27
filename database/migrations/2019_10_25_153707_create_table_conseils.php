@@ -16,7 +16,7 @@ class CreateTableConseils extends Migration
         Schema::create('conseils', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titre');
-            $table->string('desctiption');
+            $table->text('desctiption');
             $table->string('image')->nullable();
             $table->string('audio')->nullable();
             $table->string('video')->nullable();

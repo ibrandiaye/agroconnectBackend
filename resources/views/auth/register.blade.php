@@ -20,7 +20,7 @@
                             <div class="col-6">
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <div class="col-12">
-                                        <label for="name" class="col-12 control-label">Name</label>
+                                        <label for="name" class="col-12 control-label">Nom</label>
                                         <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                         @if ($errors->has('name'))
@@ -123,7 +123,7 @@
 
                         <div class="form-group text-center m-t-20">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn btn-primary btn-block btn-lg waves-effect waves-light">
+                                <button type="submit" class="btn btn-success btn btn-success btn-block btn-lg waves-effect waves-light">
                                     Enregister
                                 </button>
                             </div>
