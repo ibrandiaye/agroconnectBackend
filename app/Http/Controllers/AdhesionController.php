@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AdhesionController extends Controller
 {
+    /**
+     * controlleur qui permet d'enregistrer les adhesions des paysans
+     */
     protected $adhesionRepository;
     protected $cooperationRepository;
     protected $paysanRepository;

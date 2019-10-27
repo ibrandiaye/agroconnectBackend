@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PosterController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requetes de pour postuler à une annonce
+     */
     protected $posterRepository;
     public function __construct(PosterRepository $posterRepository){
         $this->posterRepository = $posterRepository;
@@ -38,7 +41,7 @@ class PosterController extends Controller
         //try{
             $request->merge(['user_id'=>Auth::id(),'etat'=> false]);
             $poster = $this->posterRepository->store($request->all());
-            return redirect()->back()->with('success','Nous possédons à la validatio de votre de annonce');
+            return redirect()->back()->with('success','Nous possédons à la validation de votre de annonce');
       //  }catch (\Exception $ex) {
             //return redirect()->back()->with('error','Echec! veuillez réessayer');
         //}

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ParcelleController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requets de parcelle accessible seulement dans la partie admin
+     */
     protected $parcelleRepository;
     protected $cooperativeRepository;
 

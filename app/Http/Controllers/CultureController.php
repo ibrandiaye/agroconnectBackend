@@ -8,6 +8,9 @@ use Image;
 
 class CultureController extends Controller
 {
+    /**
+     * controlleur qui permet d'enregistrer categories accessible seulement dans la partie admin
+     */
 
     protected $cultureRepository;
 

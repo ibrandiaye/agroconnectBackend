@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Image;
 class SousCategorieController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requetes de sous categorie accessible seulement dans la partie admin
+     */
     protected $categorieRepository;
     protected $sousCategorieRepository;
     public function __construct(SousCategorieRepository $sousCategorieRepository, CategorieRepository $categorieRepository ){

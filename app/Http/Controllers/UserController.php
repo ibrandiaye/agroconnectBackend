@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requets des utitilisateur accessible seulement dans la partie admin
+     */
     protected $paysanRepository;
     protected $particulierRepository;
     protected $entrepriseRepository;

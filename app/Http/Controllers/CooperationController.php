@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class CooperationController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les cooperations accessible
+     */
     protected $cooperativeRepository;
 
     public function __construct(CooperationRepository $cooperationRepository)

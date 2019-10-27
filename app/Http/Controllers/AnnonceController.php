@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AnnonceController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requetes pour les annonces  pour le marché virtuel
+     */
     protected $annonceRepository;
     protected  $produitRepository;
     protected $sousCategorieRepository;

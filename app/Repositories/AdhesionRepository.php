@@ -8,6 +8,9 @@ use App\Adhesion;
 
 class AdhesionRepository extends RessourceRepository
 {
+    /**
+     * Repository qui permet d les adhesions des paysans
+     */
     private $idUser;
     public function __construct(Adhesion $adhesion)
     {

@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PublicationController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requêtes de publication meteo
+     */
     protected $publicationRepository;
     public function __construct(PublicationRepository $publicationRepository)
     {

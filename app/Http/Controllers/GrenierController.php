@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class GrenierController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requetes de  grenier accessible seulement dans la partie admin
+     */
     protected $grenierRepository;
     protected $cooperativeRepository;
     public function __construct(GrenierRepository $grenierRepository, CooperationRepository $cooperationRepository)

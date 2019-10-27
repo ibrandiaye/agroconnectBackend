@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Image;
 class CategorieController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer categories accessible seulement dans la partie admin
+     */
     protected $categorieRepository;
     public function __construct(CategorieRepository $categorieRepository){
         $this->categorieRepository = $categorieRepository;

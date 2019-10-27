@@ -9,6 +9,9 @@ use Image;
 
 class ProduitController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requêtes de produit accessible seulement dans la partie admin
+     */
     protected $produitReposiory;
     protected $sousCategorieRepository;
     public function __construct(ProduitRepository $produitRepository, SousCategorieRepository $sousCategorieRepository){

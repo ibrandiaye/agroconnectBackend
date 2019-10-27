@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Image;
 class ConseilController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer categories accessible seulement dans la partie admin
+     */
     protected $conseilRepository;
 
     public function __construct(ConseilRepository $conseilRepository){

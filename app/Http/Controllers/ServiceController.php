@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requêtes de service
+     */
     protected $serviceRepository;
     protected $sousCategorieRepository;
     protected $categorieRepository;

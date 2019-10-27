@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class InteresseController extends Controller
 {
+    /**
+     * controlleur qui permet de gerer les requetes pour la classe interresé
+     */
 
     protected $interesseRepository;
     protected $serviceRepository;
